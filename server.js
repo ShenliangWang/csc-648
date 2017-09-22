@@ -1,3 +1,4 @@
+
 var express = require("express");
 var app = express();
 var router = express.Router();
@@ -12,48 +13,37 @@ router.get("/",function(req,res){
   res.sendFile(path + "index.html");
 });
 
-router.get("/",function(req,res){
-  res.sendFile(path + "about.html");
+
+router.get("/groupmember1",function(req,res){
+  res.sendFile(path + "groupmember1.html");
 });
 
-/*
-
-router.get("/",function(req,res){
-  res.sendFile(path + "group_member_1.html");
+router.get("/groupmember2",function(req,res){
+  res.sendFile(path + "groupmember2.html");
 });
 
-router.get("/",function(req,res){
-  res.sendFile(path + "group_member_2.html");
+router.get("/groupmember3",function(req,res){
+  res.sendFile(path + "groupmember3.html");
 });
 
-router.get("/",function(req,res){
-  res.sendFile(path + "group_member_3.html");
+router.get("/groupmember4",function(req,res){
+  res.sendFile(path + "groupmember4.html");
 });
 
-router.get("/",function(req,res){
-  res.sendFile(path + "group_member_4.html");
+router.get("/groupmember5",function(req,res){
+  res.sendFile(path + "groupmember5.html");
 });
 
-router.get("/",function(req,res){
-  res.sendFile(path + "group_member_5.html");
+router.get("/groupmember6",function(req,res){
+  res.sendFile(path + "groupmember6.html");
 });
 
-router.get("/",function(req,res){
-  res.sendFile(path + "group_member_6.html");
-});
-
-
-
-
-
-
-------------------------------------------
 app.use("/",router);
 
 app.use("*",function(req,res){
   res.sendFile(path + "404.html");
 });
-*/
+
 app.listen(3000,function(){
   console.log("Live at Port 3000");
 });
