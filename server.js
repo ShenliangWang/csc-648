@@ -1,4 +1,3 @@
-
 var express = require("express");
 var app = express();
 var router = express.Router();
@@ -44,6 +43,6 @@ app.use("*",function(req,res){
   res.sendFile(path + "404.html");
 });
 
-app.listen(3000,function(){
-  console.log("Live at Port 3000");
+app.listen(17006,function(){
+  console.log("Live at Port 17006");
 });
