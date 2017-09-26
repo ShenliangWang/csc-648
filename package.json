@@ -1,15 +1,24 @@
 {
   "name": "myapp",
   "version": "1.0.0",
-  "description": "",
+  "description": "- TODO",
   "main": "index.js",
   "dependencies": {
-    "express": "^4.15.4"
+    "express": "^4.15.5"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "npm install express --save"
+    "test": "npm install express --save",
+    "start": "node server.js"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CSC-648-SFSU/csc648-fall17-team06.git"
+  },
+  "bugs": {
+    "url": "https://github.com/CSC-648-SFSU/csc648-fall17-team06/issues"
+  },
+  "homepage": "https://github.com/CSC-648-SFSU/csc648-fall17-team06#readme"
 }
