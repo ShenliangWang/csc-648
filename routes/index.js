@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 
 // for parsing application/xwww-
 app.use(bodyParser.urlencoded({ extended: true }));
-form-urlencoded
+//form-urlencoded
 
 // for parsing multipart/form-data
 app.use(upload.array());
@@ -27,16 +27,12 @@ app.use(express.static('public'));
 router.get('/', function(req, res, next) {
 res.render('index', { title: 'Fuck All' });
 
-var querey = req.param('querey');
-res.send(querey);
-
+//var querey = req.body('querey');
 });
 
-//router.get('/test', function(req, res, next) {
-//res.render('index', { title: 'Express:Test' });
-//var querey = req.param('querey');
-//res.send(querey);
-//});
+router.get('/test', function(req, res, next) {
+res.render('test', { title: 'Express:Test Page', querey: req.query.querey});
+});
 
 
 
