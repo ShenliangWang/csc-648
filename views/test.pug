@@ -8,6 +8,7 @@ block content
   table(style="width:100%")
     tr
       th Address
+      th city
       th Zipcode
       th Price
       th Sqft
@@ -15,6 +16,7 @@ block content
     for listing in results
       tr(style="text-align:center")
         td= listing.address
+        td= listing.city
         td= listing.zipcode
         td= listing.price
         td= listing.sqft
