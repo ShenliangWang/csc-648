@@ -3,5 +3,19 @@ extends layout
 block content
   h1= title
   p Hello world #{title}
-  p this is a different page
-  p this is what you entered #{querey}
+  p Testing the Search Results Page
+  p Search Results for: #{search}
+  table(style="width:100%")
+    tr
+      th Address
+      th Zipcode
+      th Price
+      th Sqft
+      th Building Type
+    for listing in results
+      tr(style="text-align:center")
+        td= listing.address
+        td= listing.zipcode
+        td= listing.price
+        td= listing.sqft
+        td= listing.type
