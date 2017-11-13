@@ -1,10 +1,13 @@
 extends layout
 
 block content
-  h1= title
-  p Database Functions #{title}
-  
-      form(action='test', method="get")
-       input(type='text', name='search', placeholder='Search Database')
-       input(type='submit')
+  .main.container
+    .row.text-center
+     .media
+      .media-middle
+       img(src='/images/listing_id_1/1.jpeg', style='width:250px')
+    .row
+      .col-md-6.col-md-offset-3
+        h1.display-4.m-b-2 Log In
+
        
