@@ -8,7 +8,7 @@ var db = require('./db');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
-
+var dbTest = require('./routes/dbTest');
 var app = express();
 
 // view engine setup
