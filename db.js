@@ -27,7 +27,7 @@ function search(query, callback) {
             for(var i = 0; i < rows.length; i++) {
 
                 var listing = {
-                    'address' : rows[i].address_id,
+                    'address' : rows[i].address,
                     'city' : rows[i].city,
                     'zipcode' : rows[i].zipcode,
                     'price' : rows[i].price,
