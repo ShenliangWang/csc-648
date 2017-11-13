@@ -3,7 +3,7 @@ var router = express.Router();
 var db = require('../db.js')
 
 /* GET home page. */
-router.get('/dbTest', function(req, res, next) {
+router.get('/', function(req, res, next) {
     res.render('dbTest', { title: 'tester' });
 });
 
