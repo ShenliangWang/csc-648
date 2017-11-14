@@ -46,4 +46,12 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+app.get('/test', expressValidator(validation.test), function(req, res){//NEW
+    res.json(200);
+});
+
+app.get('/test', expressValidator(test), function(req, res){//NEW  
+    res.json(200);
+});
+
 module.exports = app;
