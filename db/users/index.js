@@ -36,7 +36,7 @@ function set_email(users_id, email, callback) {
 }
 
 /* Update selected users's password from db table userss. */
-function set_email(users_id, pword, callback) {
+function set_password(users_id, pword, callback) {
         //Needs implementation
 }
 

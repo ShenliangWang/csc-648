@@ -39,7 +39,7 @@ function set_email(agent_id, email, callback) {
 }
 
 /* Update selected agent's password from db table agents. */
-function set_email(agent_id, pword, callback) {
+function set_password(agent_id, pword, callback) {
         //Needs implementation
 }
 
