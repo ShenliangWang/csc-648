@@ -1,13 +1,44 @@
 const db = require('../connect');
 
-/* Gets password associated with a particular email from passwords table in db */
+var table = "passwords";
+var insert = "INSERT INTO " + table + " ";
+var select = "SELECT * FROM " + table + " ";
+var update = "UPDATE " +  table + " ";
+var del = "DELETE FROM " + table + " ";
+
+/* Gets password associated with a particular email from passwords table in db 
+   Note: Testing req'd
+   @author: Felix															 */
 function get_password(email, callback) {
-	//Needs implementation
+	db.query(select + 
+		"WHERE email=" + mysql.escape(email), 
+	       function(err, result) {
+		       if(err) {
+			       res.status(500).json({"status_code": 500,"status_message": "internal server error"});
+			       return callback(err);
+		       } else {
+			       return callback(result);
+		       }
+	       }
+       )
 }
 
-/* Sets password in table passwords associated with a particular email in db */
+/* Sets password in table passwords associated with a particular email in db
+   Note: Testing req'd
+   @author: Felix															 */
 function set_password(email, password, callback) {
-	//Needs implementation
+	db.query(update +
+			"SET password=" + mysql.escape(password) + 
+		   " WHERE email=" + email,
+		   function(err, result) {
+			if(err) {
+				res.status(500).json({"status_code": 500,"status_message": "internal server error"});
+				return callback(err);
+			} else {
+				return callback(result);
+			  }
+		   }
+	)
 }
 
 

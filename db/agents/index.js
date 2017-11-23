@@ -4,6 +4,7 @@ var table = "agents";
 var insert = "INSERT INTO " + table + " ";
 var select = "SELECT * FROM " + table + " ";
 var update = "UPDATE " +  table + " ";
+var del = "DELETE FROM " + table + " "; 
 
 /* insert new agent to agents table in db 
    Note: Testing required.
@@ -13,7 +14,9 @@ function create_agent(fname, lname, phone, email, pwd, callback) {
 
 	db.query(  insert + 
 		   "(firstname, lastname, phonenumber, email, created_at, updated_at) " + 
-		     "VALUES (\'fname\', \'lname\', phone, \'email\', \'pwd\', mysqlTimestamp, mysqlTimestamp)",
+		     "VALUES " + 
+		     "(" + mysql.escape(fname) + "," + mysql.escape(lname) + "," + mysql.escape(phone)
+		     + "," + mysql.escape(email) +"," + mysqlTimestamp + "," + mysqlTimestamp +  ")",
 		     function(err, agent) {
 			     if(err) {
 				res.status(500).json({"status_code": 500,"status_message": "internal server error"});
@@ -23,12 +26,24 @@ function create_agent(fname, lname, phone, email, pwd, callback) {
 			     }
 		     }
 	)
+
+	//Todo: Insert into passwords table given password for this agent.
 }
 
 /* Delete selected agent from db table agents.
    May not need this. Potential admin fcn from workbench */
 function delete_agent(agent_id, callback) {
-	//Needs implementation
+	db.query(del +
+		"WHERE agent_id=" + agent_id,
+		function(err, agent) {
+			if(err) {
+			   res.status(500).json({"status_code": 500,"status_message": "internal server error"});
+			   return callback(err);
+		       } else {
+			      return callback(agent); 
+			}
+		}
+	)
 }
 
 /* Gets agent from db table agents
@@ -44,7 +59,8 @@ function get_agent(agent_id, callback) {
 			} else {
 				return callback(agent);
 			}
-		})
+		}
+	)
 }
 
 /* Update selected agent's fname from db table agents.
@@ -52,7 +68,6 @@ function get_agent(agent_id, callback) {
    Note: Testing needed
    @author: Felix					*/
 function set_fname(agent_id, fname, callback) {
-	//Needs implementation
 	db.query( update +
 		  "SET fname = " + mysql.escape(fname) + //built in mysql escape to prevent sql ijections
 		 " WHERE agent_id = " + agent_id,
@@ -63,13 +78,25 @@ function set_fname(agent_id, fname, callback) {
 			} else {
 				return callback(result);
 			}
-		})
+		}
+	)
 }
 
 /* Update selected agent's lname from db table agents.
    May not need this. Potential admin fcn from workbench */
 function set_lname(agent_id, lname, callback) {
-        //Needs implementation
+        db.query( update +
+		"SET fname = " + mysql.escape(lname) + //built in mysql escape to prevent sql ijections
+	       " WHERE agent_id = " + agent_id,
+	      function(err, result) {
+		      if(err){
+			      res.status(500).json({"status_code": 500,"status_message": "internal server error"});
+			      return callback(err);
+		      } else {
+			      return callback(result);
+		      }
+	      }
+	)
 }
 
 /* Update selected agent's phone from db table agents. 
@@ -86,7 +113,8 @@ function set_phone(agent_id, phone, callback) {
 			} else {
 				return callback(result);
 			}
-		})
+		}
+	)
 }
 
 /* Update selected agent's email from db table agents. 
@@ -103,7 +131,8 @@ function set_email(agent_id, email, callback) {
 		       } else {
 			       return callback(result);
 		       }
-	       })
+	       }
+	)
 }
 
 /* Update selected agent's password from db table agents. */
