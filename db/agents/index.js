@@ -31,7 +31,9 @@ function create_agent(fname, lname, phone, email, pwd, callback) {
 }
 
 /* Delete selected agent from db table agents.
-   May not need this. Potential admin fcn from workbench */
+   May not need this. Potential admin fcn from workbench
+   Note: Testing req'd
+   @author: Felix                                		 */
 function delete_agent(agent_id, callback) {
 	db.query(del +
 		"WHERE agent_id=" + agent_id,
@@ -83,7 +85,9 @@ function set_fname(agent_id, fname, callback) {
 }
 
 /* Update selected agent's lname from db table agents.
-   May not need this. Potential admin fcn from workbench */
+   May not need this. Potential admin fcn from workbench 
+   Note: Testing req'd
+   @author: Felix                                		*/
 function set_lname(agent_id, lname, callback) {
         db.query( update +
 		"SET fname = " + mysql.escape(lname) + //built in mysql escape to prevent sql ijections

@@ -10,7 +10,9 @@ var del = "DELETE FROM " + table + " ";
    Note: Only agents can create listings.
    Note: Images can not be included in this fcn. 
    Call set_image() after calling this function to 
-   associate a image with listing                   */
+   associate a image with listing                  
+   Note: Testing req'd
+   @author: Felix                                 */
 function create_listing(agent_id, house_type, price, address, city, state, zip, beds, baths, sqrft, description, callback) {
         db.query(insert + 
                 "(agent_id, type, price, address, city, state, zipcode, bedrooms, bathrooms, sqrft, description) " + 
