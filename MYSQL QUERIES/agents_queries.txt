@@ -1,0 +1,183 @@
+SQL queries for DB folder
+--------------------------------------------------------------------------------------
+function create_agent(fname, lname, phone, email, pwd, callback) {
+
+ db.query("INSERT INTO Agents(firstname, lastname, phonenumber, email) VALUES ("+fname+", "+lname+", "+phone+", "+email+")", 
+    function(err,rows,fields) {
+        if(err) {
+            res.status(500).json({"status_code": 500,"status_message": "internal server error"});
+            return callback(err);
+        }
+    })
+	
+	 db.query("INSERT INTO password(email, password) VALUES ("+email+", "+password+")", 
+    function(err,rows,fields) {
+        if(err) {
+            res.status(500).json({"status_code": 500,"status_message": "internal server error"});
+            return callback(err);
+        }
+    })
+}
+
+INSERT INTO Agents(firstname, lastname, phonenumber, email) VALUES(fname, lname, phone, email);
+INSERT INTO password(email, password) VALUES(email, password);
+--------------------------------------------------------------------------------------
+function delete_agent(agent_id, callback) {
+	db.query("DELETE * FROM Agents WHERE agent_id = "+agent_id+")", 
+    function(err,rows,fields) {
+        if(err) {
+            res.status(500).json({"status_code": 500,"status_message": "internal server error"});
+            return callback(err);
+        }
+    })
+}
+
+function delete_agent(agent_email, callback) {
+	db.query("DELETE * FROM Agents WHERE email = "+agent_email+")", 
+    function(err,rows,fields) {
+        if(err) {
+            res.status(500).json({"status_code": 500,"status_message": "internal server error"});
+            return callback(err);
+        }
+    })
+}
+
+
+DELETE * FROM Agents WHERE  agent_id = agent_id;//agent id version
+DELETE * FROM Agents WHERE  email = email;//email version
+--------------------------------------------------------------------------------------
+
+function get_agent(agent_id, callback) {
+    db.query("SELECT * FROM Agents WHERE agent_id = " + agent_id +"", 
+    function(err,rows,fields) {
+        if(err) {
+            res.status(500).json({"status_code": 500,"status_message": "internal server error"});
+            return callback(err);
+        } else {
+            var agents = [];
+            for(var i = 0; i < rows.length; i++) {
+
+                var agent = {
+					'agent_id' : rows[i].agent_id,
+                    'firstname' : rows[i].firstname,
+                    'lastname' : rows[i].lastname,
+                    'phonenumber' : rows[i].zipcode,
+                    'email' : rows[i].email
+                }
+                agents.push(agent);
+            }
+            return callback(agents);
+        }})}
+		
+SELECT * FROM Agents where agent_id = agent_id;//id version
+SELECT * FROM Agents where email = email;//email version
+--------------------------------------------------------------------------------------
+
+function set_fname(agent_id,fname,callback) {
+	db.query("UPDATE TABLE Agents SET firstname = "+fname+" WHERE agent_id = "+agent_id+")", 
+    function(err,rows,fields) {
+        if(err) {
+            res.status(500).json({"status_code": 500,"status_message": "internal server error"});
+            return callback(err);
+        }
+    })
+}
+
+function set_fname(agent_email,fname,callback) {
+	db.query("UPDATE TABLE Agents SET firstname = "+fname+" WHERE email = "+agent_email+")", 
+    function(err,rows,fields) {
+        if(err) {
+            res.status(500).json({"status_code": 500,"status_message": "internal server error"});
+            return callback(err);
+        }
+    })
+}
+
+UPDATE TABLE Agents SET firstname = fname WHERE agent_id = agent_id;//id version
+UPDATE TABLE Agents SET firstname = fname WHERE email = email;//email version
+--------------------------------------------------------------------------------------
+
+function set_lname(agent_id,lname,callback) {
+	db.query("UPDATE TABLE Agents SET lastname = "+lname+" WHERE agent_id = "+agent_id+")", 
+    function(err,rows,fields) {
+        if(err) {
+            res.status(500).json({"status_code": 500,"status_message": "internal server error"});
+            return callback(err);
+        }
+    })
+}
+
+function set_lname(agent_email,lname,callback) {
+	db.query("UPDATE TABLE Agents SET lastname = "+lname+" WHERE email = "+agent_email+")", 
+    function(err,rows,fields) {
+        if(err) {
+            res.status(500).json({"status_code": 500,"status_message": "internal server error"});
+            return callback(err);
+        }
+    })
+}
+
+UPDATE TABLE Agents SET lastname = lname WHERE agent_id = agent_id;//id version
+UPDATE TABLE Agents SET lastname = lname WHERE email = email;//email version
+--------------------------------------------------------------------------------------
+
+function set_phone(agent_id,phone,callback) {
+	db.query("UPDATE TABLE Agents SET phonenumber = "+phone+" WHERE agent_id = "+agent_id+")", 
+    function(err,rows,fields) {
+        if(err) {
+            res.status(500).json({"status_code": 500,"status_message": "internal server error"});
+            return callback(err);
+        }
+    })
+}
+
+function set_phone(agent_email,phone,callback) {
+	db.query("UPDATE TABLE Agents SET phonenumber = "+phone+" WHERE email = "+agent_email+")", 
+    function(err,rows,fields) {
+        if(err) {
+            res.status(500).json({"status_code": 500,"status_message": "internal server error"});
+            return callback(err);
+        }
+    })
+}
+
+
+UPDATE TABLE Agents SET phoneNumber = phone WHERE agent_id = agent_id;//id version
+UPDATE TABLE Agents SET phoneNumber = phone WHERE email = email;//email version
+--------------------------------------------------------------------------------------
+/* Update selected agent's email from db table agents. */
+function set_email(agent_id, email, callback) {
+        //Needs implementation
+}
+
+function set_email(agent_id,email,callback) {
+	db.query("UPDATE TABLE Agents SET email = "+email+" WHERE agent_id = "+agent_id+")", 
+    function(err,rows,fields) {
+        if(err) {
+            res.status(500).json({"status_code": 500,"status_message": "internal server error"});
+            return callback(err);
+        }
+    })
+}
+
+UPDATE TABLE Agents SET phoneNumber = phone WHERE agent_id = agent_id;//id version
+UPDATE TABLE Agents SET phoneNumber = phone WHERE email = email;//email version
+--------------------------------------------------------------------------------------
+/* Update selected agent's password from db table agents. */
+function set_password(agent_id, pword, callback) {
+        //Needs implementation
+}
+
+function set_password(agent_email,pword,callback) {
+	db.query("UPDATE TABLE password SET password = "+pword+" WHERE email = "+agent_email+")", 
+    function(err,rows,fields) {
+        if(err) {
+            res.status(500).json({"status_code": 500,"status_message": "internal server error"});
+            return callback(err);
+        }
+    })
+}
+
+UPDATE TABLE password SET password = pword WHERE agent_id = agent_id;//id version--not viable since there is no agent_id column in the password table
+UPDATE TABLE password SET password = pword WHERE email = email;//email version
+--------------------------------------------------------------------------------------
