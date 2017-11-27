@@ -1,0 +1,177 @@
+const db = require('../connect');
+
+/* Inserts a new message in the messages table in db */
+function create_msg(agent_id, user_id, msg, callback) {
+	//Needs implementation
+}
+
+function create_msg(agent_id, user_id, msg, callback) {
+
+ db.query("INSERT INTO messages(agent_id, user_id, message) VALUES ("+agent_id+", "+usr_id+", "+msg+")", 
+    function(err,rows,fields) {
+        if(err) {
+            res.status(500).json({"status_code": 500,"status_message": "internal server error"});
+            return callback(err);
+        }})
+	
+INSERT INTO messages(agent_id, user_id, message) VALUES (agent_id, usr_id, msg)
+
+/* Delete selected message from db table message. */
+function delete_msg(msg_id, callback) {
+	//Needs implementation
+}
+
+function delete_agent(agent_id, callback) {
+	db.query("DELETE * FROM messages WHERE agent_id = "+agent_id+")", 
+    function(err,rows,fields) {
+        if(err) {
+            res.status(500).json({"status_code": 500,"status_message": "internal server error"});
+            return callback(err);
+        }})}
+
+// Gets selected user's messages in the db table messages 
+function get_Usermsgs(usr_id, callback) {
+		//Needs implementation
+}
+
+function get_Usermsgs(usr_id, callback) {
+    db.query("SELECT * FROM messages WHERE user_id = " + usr_id +"", 
+    function(err,rows,fields) {
+        if(err) {
+            res.status(500).json({"status_code": 500,"status_message": "internal server error"});
+            return callback(err);
+        } else {
+            var messages = [];
+            for(var i = 0; i < rows.length; i++) {
+
+                var message = {
+					'agent_id' : rows[i].agent_id,
+                    'user_id' : rows[i].user_id,
+                    'message' : rows[i].message,
+					'dateTime' : rows[i].dateTime
+                }
+                messages.push(message);
+            }
+            return callback(messages);
+        }})}
+
+/* Gets selected user's messages in the db table messages 
+   with the associated date indicated */
+
+   //Since the column in the DB also requires a time stamp, as well as a date, we will use %LIKE to avoid confusion
+   function get_Umsgs_by_date(usr_id, timeStamp, callback) {
+        //Needs implementation
+}
+
+   function get_Umsgs_by_date(usr_id, timeStamp, callback) {
+    db.query("SELECT * "+"FROM messages " +"WHERE dateTime LIKE '%" + timeStamp +" AND user_id = "+usr_id+"", 
+    function(err,rows,fields) {
+        if(err) {
+            res.status(500).json({"status_code": 500,"status_message": "internal server error"});
+            return callback(err);
+        } else {
+            var listings = [];
+            for(var i = 0; i < rows.length; i++) {
+
+                var messages = [];
+            for(var i = 0; i < rows.length; i++) {
+
+                var message = {
+					'agent_id' : rows[i].agent_id,
+                    'user_id' : rows[i].usr_id,
+                    'message' : rows[i].message,
+					'dateTime' : rows[i].dateTime
+                }
+                messages.push(message);
+            }
+            return callback(messages);
+        }})}
+
+// Gets selected agent's messages in the db table messages 
+function get_Agentmsgs(agent_id, callback) {
+		//Needs implementation
+}
+
+function get_Usermsgs(usr_id, callback) {
+    db.query("SELECT * FROM messages WHERE agent_id = " + agent_id +"", 
+    function(err,rows,fields) {
+        if(err) {
+            res.status(500).json({"status_code": 500,"status_message": "internal server error"});
+            return callback(err);
+        } else {
+            var messages = [];
+            for(var i = 0; i < rows.length; i++) {
+
+                var message = {
+					'agent_id' : rows[i].agent_id,
+                    'user_id' : rows[i].user_id,
+                    'message' : rows[i].message,
+					'dateTime' : rows[i].dateTime
+                }
+                messages.push(message);
+            }
+            return callback(messages);
+        }})}
+
+
+
+
+/* Gets selected agent's messages in the db table messages 
+   with the associated date indicated */
+function get_Amsgs_by_date(agent_id, timeStamp, callback) {
+        //Needs implementation
+}
+
+   function get_Amsgs_by_date(agent_id, timeStamp, callback) {
+    db.query("SELECT * "+"FROM messages " +"WHERE dateTime LIKE '%" + timeStamp +" AND agent_id = "+agent_id+"", 
+    function(err,rows,fields) {
+        if(err) {
+            res.status(500).json({"status_code": 500,"status_message": "internal server error"});
+            return callback(err);
+        } else {
+            var listings = [];
+            for(var i = 0; i < rows.length; i++) {
+
+                var messages = [];
+            for(var i = 0; i < rows.length; i++) {
+
+                var message = {
+					'agent_id' : rows[i].agent_id,
+                    'user_id' : rows[i].usr_id,
+                    'message' : rows[i].message,
+					'dateTime' : rows[i].dateTime
+                }
+                messages.push(message);
+            }
+            return callback(messages);
+        }})}
+
+
+
+
+/* Inserts a new message in the table messages, may be
+   redundant with create_msg.                        */ 
+function send_msg(usr_id, agent_id, msg, callback) {
+        //Needs implementation
+}
+
+function send_msg(usr_id, agent_id, msg, callback) {
+
+ db.query("INSERT INTO messages(agent_id, user_id, message) VALUES ("+agent_id+", "+usr_id+", "+msg+")", 
+    function(err,rows,fields) {
+        if(err) {
+            res.status(500).json({"status_code": 500,"status_message": "internal server error"});
+            return callback(err);
+        }})
+
+
+
+module.exports = {
+	create_msg,
+	delete_msg,
+	get_Usermsgs,
+	get_Umsgs_by_date.
+	get_Agentmsgs,
+	get_Amsgs_by_date
+	send_msg
+};
