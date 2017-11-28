@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.7.20, for Linux (x86_64)
 --
--- Host: localhost    Database: fa17g06
+-- Host: localhost    Database: 
 -- ------------------------------------------------------
 -- Server version	5.7.20-0ubuntu0.16.04.1
 
@@ -14,6 +14,14 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Current Database: `fa17g06`
+--
+
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ `fa17g06` /*!40100 DEFAULT CHARACTER SET latin1 */;
+
+USE `fa17g06`;
 
 --
 -- Table structure for table `Agents`
@@ -57,7 +65,7 @@ CREATE TABLE `Users` (
   `firstname` varchar(255) NOT NULL,
   `lastname` varchar(255) DEFAULT NULL,
   `email` varchar(255) NOT NULL,
-  `phoneNumber` varchar(10) DEFAULT NULL,
+  `phonenumber` varchar(10) DEFAULT NULL,
   `createdAt` datetime DEFAULT NULL,
   `updatedAt` datetime DEFAULT NULL,
   PRIMARY KEY (`user_id`),
@@ -166,6 +174,59 @@ INSERT INTO `listings` VALUES (1,1,1500,1000000,'San Francisco','CA',94112,'50 P
 UNLOCK TABLES;
 
 --
+-- Table structure for table `messages`
+--
+
+DROP TABLE IF EXISTS `messages`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `messages` (
+  `message_id` int(3) NOT NULL AUTO_INCREMENT,
+  `user_email` varchar(255) NOT NULL,
+  `message` varchar(500) NOT NULL,
+  `created_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`message_id`),
+  KEY `user_email` (`user_email`),
+  CONSTRAINT `messages_ibfk_1` FOREIGN KEY (`user_email`) REFERENCES `Users` (`email`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `messages`
+--
+
+LOCK TABLES `messages` WRITE;
+/*!40000 ALTER TABLE `messages` DISABLE KEYS */;
+/*!40000 ALTER TABLE `messages` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `password`
+--
+
+DROP TABLE IF EXISTS `password`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `password` (
+  `password_id` int(3) NOT NULL AUTO_INCREMENT,
+  `associated_email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `created_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`password_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `password`
+--
+
+LOCK TABLES `password` WRITE;
+/*!40000 ALTER TABLE `password` DISABLE KEYS */;
+INSERT INTO `password` VALUES (1,'harleyAndMrJ@puddin.com','notSuchASecretPasswordBatsy','2017-11-23 08:51:25'),(2,'CptSparrow@essos.com','TheBlackPerl','2017-11-23 08:53:30');
+/*!40000 ALTER TABLE `password` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `user_password`
 --
 
@@ -201,4 +262,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-11-21 22:31:13
+-- Dump completed on 2017-11-28  6:57:41
