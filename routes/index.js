@@ -12,7 +12,7 @@ router.get('/test', function(req, res, next) {
     req.check('search','Invalid search input').escape(req.query.search);//Sanatize the input by escaping harmful chars --Required
 	//req.check('search','Invalid search input').isAlphanumeric(req.query.search,[en-US]);//checks if the string is alpha-numeric and US chars --helpful
     
-    Listings.search(req.query.search, (searchResults) => {
+    Listings.Listings.search(req.query.search, (searchResults) => {
         res.render('test', { title: 'Results Page', search: req.query.search, results: searchResults});
     });
 });

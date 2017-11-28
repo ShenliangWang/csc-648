@@ -8,13 +8,13 @@ const connection = mysql.createConnection({
     database: configDB.database
 });
 
-const db = connection.connect(error => {
+connection.connect(error => {
     if(error){
 	console.log("Error connecting to database");
 	 throw error;
     }
     else
    	console.log("Connected to database");
-});	
+});
 
-module.exports = db;
+module.exports = connection;
