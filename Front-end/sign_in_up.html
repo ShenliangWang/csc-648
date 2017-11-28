@@ -35,11 +35,18 @@
                     <input type="text" class="form-control">
                 
                     <div class="input-group-btn">
-                        <button type="button" class="btn btn-search btn-danger">
+                        <button type="button" class="btn btn-search btn-danger" onclick="relocate_home()">
                             <span class="glyphicon glyphicon-search"></span>
                             <span class="label-icon">Search</span>
                         </button>
                         
+                      
+                      <script>
+                        function relocate_home()
+                        {
+                          location.href = "result.html";
+                        } 
+                      </script>
                         
                     </div>
                 </div>  

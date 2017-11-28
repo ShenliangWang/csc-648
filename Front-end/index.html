@@ -35,11 +35,18 @@
                     <input type="text" class="form-control">
                 
                     <div class="input-group-btn">
-                        <button type="button" class="btn btn-search btn-danger">
+                        <button type="button" class="btn btn-search btn-danger" onclick="relocate_home()">
                             <span class="glyphicon glyphicon-search"></span>
                             <span class="label-icon">Search</span>
                         </button>
                         
+                      
+                      <script>
+                        function relocate_home()
+                        {
+                          location.href = "result.html";
+                        } 
+                      </script>
                         
                     </div>
                 </div>  
@@ -54,7 +61,7 @@
               <a class="nav-link" href="#">Agent</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Sign In/Sign Up</a>
+              <a class="nav-link" href="sign _in_up.html">Sign In/Sign Up</a>
             </li>
           </ul>
         </div>
