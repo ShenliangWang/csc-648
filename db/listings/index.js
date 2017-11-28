@@ -290,11 +290,14 @@ function search(query, callback) {
                     'zipcode' : rows[i].zipcode,
                     'price' : rows[i].price,
                     'sqft' : rows[i].sqrft,
-                    'type' : rows[i].type
+                    'type' : rows[i].type,
+                    'agent': rows[i].agent_id,
+                    'id': rows[i].listing_id,
+                    'thumb': undefined
                 }
                 listings.push(listing);
             }
-            return callback(listings);
+            return callback(listings, rows.length);
         }
     })
 }

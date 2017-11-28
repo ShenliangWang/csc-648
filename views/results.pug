@@ -1,0 +1,45 @@
+extends layout
+
+block content
+  .container
+
+  // Page Heading
+  br
+  br
+
+  h1.my-4
+    | Showing 6 out of #{resultsFound} results
+       
+  .row
+    .col-lg-4.col-sm-6.portfolio-item
+       .card.h-100
+        a(href='#')
+          img.card-img-top(src='http://placehold.it/700x400', alt='')                    
+        .card-body
+          h4.card-title
+            a(href='IndividualPost.html') Property One                       
+          p.card-text
+            | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur eum quasi sapiente nesciunt? Voluptatibus sit, repellat sequi itaque deserunt, dolores in, nesciunt, illum tempora ex quae? Nihil, dolorem!         
+
+  // Pagination
+  ul.pagination.justify-content-center
+    li.page-item
+      a.page-link(href='#', aria-label='Previous')
+        span(aria-hidden='true') &laquo;
+        |             
+        span.sr-only Previous
+    |             
+    li.page-item
+      a.page-link(href='#') 1
+    |             
+    li.page-item
+      a.page-link(href='#') 2
+    |             
+    li.page-item
+      a.page-link(href='#') 3
+    |             
+    li.page-item
+      a.page-link(href='#', aria-label='Next')
+        span(aria-hidden='true') &raquo;
+        |             
+        span.sr-only Next

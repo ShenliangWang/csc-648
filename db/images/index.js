@@ -4,7 +4,24 @@ const db = require('../connect');
    to images associated with a listing_id.
 */
 function get_listing_images(listing_id, callback) {
-		//Needs implementation
+	db.query("SELECT * FROM image WHERE listing_id=" + listing_id,
+        function(err,rows,fields) {
+                if(err) {
+                        res.status(500).json({"status_code": 500,"status_message": "internal server error"});
+                        return callback(err);
+                } else {
+                        var img_paths = [];
+                        for(var i = 0; i < rows.length; i++) {
+
+                                var path = {
+                                'img' : rows[i].image_path
+                                }
+                                img_paths.push(path);
+                        }
+                        return callback(img_paths);
+                }
+        })
+        
 }
 
 /* Update selected listing's images with a new image from db table listing. 
