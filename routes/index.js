@@ -7,6 +7,11 @@ router.get('/', function(req, res, next) {
     res.render('index', { title: 'Essos Real Estate'});
 });
 
+/* Home page route workaround */
+router.get('/fa17g06', function(req, res, next) {
+    res.redirect('/fa17g06/');
+});
+
 router.get('/test', function(req, res, next) {
     
     req.check('search','Invalid search input').escape(req.query.search);//Sanatize the input by escaping harmful chars --Required

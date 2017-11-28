@@ -9,9 +9,9 @@ html
     )
 
     // Bootsrap core CSS
-    link(href='/vendor/bootstrap/css/bootstrap.min.css', rel='stylesheet')
-    link(href='/stylesheets/half-slider.css', rel='stylesheet')
-    link(href='/stylesheets/style.css', rel='stylesheet')
+    link(href='vendor/bootstrap/css/bootstrap.min.css', rel='stylesheet')
+    link(href='stylesheets/half-slider.css', rel='stylesheet')
+    link(href='stylesheets/style.css', rel='stylesheet')
 
     // Disclaimer
     .disclaimer
@@ -20,7 +20,7 @@ html
     // Navigation
     nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.sticky-top
       .container
-        a.navbar-brand(href='/') Essos
+        a.navbar-brand(href='./') Essos
         button.navbar-toggler(
           type='button', 
           data-toggle='collapse', 
@@ -31,7 +31,7 @@ html
         )
           span.navbar-toggler-icon
 
-        form.navbar-form.navbar-search(method='get', action='/test')
+        form.navbar-form.navbar-search(method='get', action='test')
           .input-group
             input.form-control(
               type='search',
@@ -46,11 +46,11 @@ html
         #navbarResponsive.collapse.navbar-collapse
           ul.navbar-nav.ml-auto
             li.nav-item
-              a.nav-link(href='/about') About us             
+              a.nav-link(href='about') About us             
             li.nav-item
               a.nav-link(href='#') Agent          
             li.nav-item
-            a.nav-link(href='/register') Sign In/Sign Up
+            a.nav-link(href='register') Sign In/Sign Up
         
   body
     block content
