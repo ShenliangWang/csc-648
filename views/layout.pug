@@ -2,6 +2,64 @@ doctype html
 html
   head
     title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    meta(charset='utf-8')
+    meta(
+      name='viewport',
+      content='width=device-width, initial-scale=1, shrink-to-fit=no'
+    )
+
+    // Bootsrap core CSS
+    link(href='/vendor/bootstrap/css/bootstrap.min.css', rel='stylesheet')
+    link(href='/stylesheets/half-slider.css', rel='stylesheet')
+    link(href='/stylesheets/style.css', rel='stylesheet')
+
+    // Disclaimer
+    .disclaimer
+      this &#9888; This site is for demonstration purposes only. &#9888;
+
+    // Navigation
+    nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.sticky-top
+      .container
+        a.navbar-brand(href='/') Essos
+        button.navbar-toggler(
+          type='button', 
+          data-toggle='collapse', 
+          data-target='#navbarResponsive', 
+          aria-controls='navbarResponsive', 
+          aria-expanded='false', 
+          aria-label='Toggle navigation'
+        )
+          span.navbar-toggler-icon
+
+        form.navbar-form.navbar-search(method='get', action='/test')
+          .input-group
+            input.form-control(
+              type='search',
+              placeholder='Search by city or zipcode',
+              name='search',
+              value= search_val)             
+            .input-group-btn
+              button.btn.btn-search.btn-danger(type='submit')
+                span.glyphicon.glyphicon-search                          
+                span.label-icon Search
+
+        #navbarResponsive.collapse.navbar-collapse
+          ul.navbar-nav.ml-auto
+            li.nav-item
+              a.nav-link(href='/about') About us             
+            li.nav-item
+              a.nav-link(href='#') Agent          
+            li.nav-item
+            a.nav-link(href='/register') Sign In/Sign Up
+        
   body
     block content
+  
+  footer
+    .py-3.bg-dark.fixed-bottom
+      .container
+        p.m-0.text-center.text-white Copyright &copy; Team 06 SFSU SE Fall 2017
+
+      // Bootstrap core JavaScript
+      script(src='vendor/jquery/jquery.min.js')    
+      script(src='vendor/bootstrap/js/bootstrap.bundle.min.js')

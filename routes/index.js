@@ -4,7 +4,7 @@ const  Listings  = require('../db');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    res.render('index', { title: 'Essos Prototype' });
+    res.render('index', { title: 'Essos Real Estate'});
 });
 
 router.get('/test', function(req, res, next) {
@@ -13,7 +13,7 @@ router.get('/test', function(req, res, next) {
 	//req.check('search','Invalid search input').isAlphanumeric(req.query.search,[en-US]);//checks if the string is alpha-numeric and US chars --helpful
     
     Listings.Listings.search(req.query.search, (searchResults) => {
-        res.render('test', { title: 'Results Page', search: req.query.search, results: searchResults});
+        res.render('test', { title: 'Results Page', search: req.query.search, results: searchResults, search_val: req.query.search});
     });
 });
 
