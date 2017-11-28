@@ -3,6 +3,6 @@ module.exports = {
 	Images: require ('./images'),
 	Listings: require ('./listings'),
 	Messages: require ('./messages'),
-	Passwords: require ('./Passwords'),
-	Users: require ('./Users')
+	Passwords: require ('./passwords'),
+	Users: require ('./users')
 }
