@@ -12,7 +12,7 @@ var del = "DELETE FROM " + table + " ";
 function create_agent(fname, lname, phone, email, pwd, callback) {
 
 var mysqlTimestamp = moment(Date.now()).format('YYYY-MM-DD HH:mm:ss');
- db.query("INSERT INTO Agents(firstname, lastname, phonenumber, email) VALUES ("+mysql.escape(fname)+","+mysql.escape(lname)+", "+mysql.escape(phone)+", "+mysql.escape(email)+","+mysqlTimestamp+")", 
+ db.query("INSERT INTO Agents(firstname, lastname, phonenumber, email, created_at) VALUES ("+mysql.escape(fname)+","+mysql.escape(lname)+", "+mysql.escape(phone)+", "+mysql.escape(email)+","+mysqlTimestamp+")", 
     function(err,rows,fields) {
         if(err) {
             res.status(500).json({"status_code": 500,"status_message": "internal server error"});
