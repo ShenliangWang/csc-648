@@ -31,23 +31,6 @@ var del = "DELETE FROM " + table + " ";
 }
 
 
-/* Delete selected user from db table users.
-   Note: Testing required.
-   @author: Felix. 			 */
-function delete_user(user_id, callback) {
-	db.query(del +
-		"WHERE user_id=" + user_id,
-		function(err, user) {
-			if(err) {
-		   		res.status(500).json({"status_code": 500,"status_message": "internal server error"});
-		   		return callback(err);
-	       		} else {
-		      		return callback(user); 
-			}
-		}
-	)
-}
-
 /* Gets user from db table user
    Note: Testing required.
    @author: Felix. 		*/
@@ -147,7 +130,6 @@ function set_password(users_id, pword, callback) {
 
 module.exports = {
 	create_user,
-	delete_user,
 	get_user,
 	set_fname,
 	set_lname,
