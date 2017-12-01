@@ -64,24 +64,6 @@ function get_listing(listing_id, callback) {
         )
 }
 
-/* Update selected agent from db table listing.
-   May not need this. Potential admin fcn from workbench
-   Note: Testing req'd
-   @author: Felix                                        */
-function set_agent(listing_id, agent_id, callback) {
-        db.query(update + 
-                "SET agent_id=" + agent_id + " " +
-                "WHERE listing_id= " + listing_id,
-                function(err, result) {
-                       if(err){
-                               res.status(500).json({"status_code": 500,"status_message": "internal server error"});
-                               return callback(err);
-                       } else {
-                               return callback(result);
-                       }
-               }
-       )
-}
 
 /* Update selected dwelling type from db table listing.
    Types: 1 = House, 2 = Condo, 3 = Apartment 
@@ -303,7 +285,6 @@ module.exports = {
 	create_listing,
 	delete_listing,
 	get_listing,
-	set_agent,
 	set_type,
         set_price,
         set_address,
