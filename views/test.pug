@@ -5,6 +5,7 @@ block content
   p Hello world #{title}
   p Testing the Search Results Page
   p Search Results for: #{search}
+  p There are #{resultsFound} Results
   table(style="width:100%")
     tr
       th Address
@@ -21,3 +22,5 @@ block content
         td= listing.price
         td= listing.sqft
         td= listing.type
+        td
+          img(src=listing.thumb)
