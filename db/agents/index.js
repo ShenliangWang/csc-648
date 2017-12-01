@@ -30,23 +30,6 @@ function create_agent(fname, lname, phone, email, pwd, callback) {
 	//Todo: Insert into passwords table given password for this agent.
 }
 
-/* Delete selected agent from db table agents.
-   May not need this. Potential admin fcn from workbench
-   Note: Testing req'd
-   @author: Felix                                		 */
-function delete_agent(agent_id, callback) {
-	db.query(del +
-		"WHERE agent_id=" + agent_id,
-		function(err, agent) {
-			if(err) {
-			   res.status(500).json({"status_code": 500,"status_message": "internal server error"});
-			   return callback(err);
-		       } else {
-			      return callback(agent); 
-			}
-		}
-	)
-}
 
 /* Gets agent from db table agents
    Note: Testing required.
@@ -65,43 +48,6 @@ function get_agent(agent_id, callback) {
 	)
 }
 
-/* Update selected agent's fname from db table agents.
-   May not need this. Potential admin fcn from workbench 
-   Note: Testing needed
-   @author: Felix					*/
-function set_fname(agent_id, fname, callback) {
-	db.query( update +
-		  "SET fname = " + mysql.escape(fname) + //built in mysql escape to prevent sql ijections
-		 " WHERE agent_id = " + agent_id,
-		function(err, result) {
-			if(err){
-				res.status(500).json({"status_code": 500,"status_message": "internal server error"});
-				return callback(err);
-			} else {
-				return callback(result);
-			}
-		}
-	)
-}
-
-/* Update selected agent's lname from db table agents.
-   May not need this. Potential admin fcn from workbench 
-   Note: Testing req'd
-   @author: Felix                                		*/
-function set_lname(agent_id, lname, callback) {
-        db.query( update +
-		"SET fname = " + mysql.escape(lname) + //built in mysql escape to prevent sql ijections
-	       " WHERE agent_id = " + agent_id,
-	      function(err, result) {
-		      if(err){
-			      res.status(500).json({"status_code": 500,"status_message": "internal server error"});
-			      return callback(err);
-		      } else {
-			      return callback(result);
-		      }
-	      }
-	)
-}
 
 /* Update selected agent's phone from db table agents. 
    Note: Testing req'd
@@ -149,10 +95,7 @@ function set_password(agent_id, pword, callback) {
 
 module.exports = {
 	create_agent,
-	delete_agent,
 	get_agent,
-	set_fname,
-	set_lname,
 	set_phone,
 	set_email,
 	set_password
