@@ -16,15 +16,12 @@ var del = "DELETE FROM " + table + " ";
 function create_listing(agent_id, house_type, price, city, state, zip, beds, baths, sqrft, description, callback) {
 
  db.query("INSERT INTO listings(type, sqrft, price, city, state, zipcode, bedrooms, bathrooms, description, agent_id) 
- VALUES ("+mysql.escape(house_type)+", "+mysql.escape(sqrft)+", "+mysql.escape(price)+", "+mysql.escape(city)+", "+mysql.escape(state)+", 
-	  "+mysql.escape(zip)+", "+mysql.escape(beds)+", "+mysql.escape(baths)+", 
-	  "+mysql.escape(description)+", "+mysql.escape(agent_id)+")", 
+ VALUES ("+mysql.escape(house_type)+", "+mysql.escape(sqrft)+", "+mysql.escape(price)+", "+mysql.escape(city)+", "+mysql.escape(state)+", "+mysql.escape(zip)+", "+mysql.escape(beds)+", "+mysql.escape(baths)+", "+mysql.escape(description)+", "+mysql.escape(agent_id)+")", 
     function(err,rows,fields) {
         if(err) {
             res.status(500).json({"status_code": 500,"status_message": "internal server error"});
             return callback(err);
-        }
-    })}
+        }})}
 
 /* Delete selected listing from db table listing.
    Note: Testing req'd
