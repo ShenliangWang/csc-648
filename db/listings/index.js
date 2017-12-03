@@ -12,245 +12,196 @@ var del = "DELETE FROM " + table + " ";
    Call set_image() after calling this function to 
    associate a image with listing                  
    Note: Testing req'd
-   @author: Felix                                 */
-function create_listing(agent_id, house_type, price, address, city, state, zip, beds, baths, sqrft, description, callback) {
-        db.query(insert + 
-                "(agent_id, type, price, address, city, state, zipcode, bedrooms, bathrooms, sqrft, description) " + 
-                "VALUES( " + agent_id + "," + house_type + "," + price + "," + mysql.escape(address) + "," + mysql.escape(city) + "," + 
-                         mysql.escape(state) + "," + zip + "," + beds + "," + baths + "," + sqrft + "," + mysql.escape(description),
-                         function(err, result) {
-                                if(err) {
-                                   res.status(500).json({"status_code": 500,"status_message": "internal server error"});
-                                   return callback(err);
-                               }else{
-                                      return callback(result); 
-                                }
-                        }
-        )
-}
+   @author: Felix + Julian*/
+function create_listing(agent_id, house_type, price, city, state, zip, beds, baths, sqrft, description, callback) {
+
+ db.query("INSERT INTO listings(type, sqrft, price, city, state, zipcode, bedrooms, bathrooms, description, agent_id) 
+ VALUES ("+mysql.escape(house_type)+", "+mysql.escape(sqrft)+", "+mysql.escape(price)+", "+mysql.escape(city)+", "+mysql.escape(state)+", 
+	  "+mysql.escape(zip)+", "+mysql.escape(beds)+", "+mysql.escape(baths)+", 
+	  "+mysql.escape(description)+", "+mysql.escape(agent_id)+")", 
+    function(err,rows,fields) {
+        if(err) {
+            res.status(500).json({"status_code": 500,"status_message": "internal server error"});
+            return callback(err);
+        }
+    })}
 
 /* Delete selected listing from db table listing.
    Note: Testing req'd
-   @author: Felix                                */
+   @author: Felix + Julian */
 function delete_listing(listing_id, callback) {
-	db.query(del +
-		"WHERE listing_id=" + listing_id,
-		function(err, agent) {
-			if(err) {
-			   res.status(500).json({"status_code": 500,"status_message": "internal server error"});
-			   return callback(err);
-		       } else {
-			      return callback(agent); 
-			}
-		}
-	)
-}
+	db.query("DELETE FROM listings WHERE listing_id = "+mysql.escape(listing_id)+")", 
+    function(err,rows,fields) {
+        if(err) {
+            res.status(500).json({"status_code": 500,"status_message": "internal server error"});
+            return callback(err);
+        }})}
 
 /* Gets listing in json format from db table listing
    Note: Images are not inlcuded.
    Note: Testing req'd
-   @author: Felix   					*/
-function get_listing(listing_id, callback) {
-        db.query(select +
-                "WHERE listing_id=" + listing_id,
-                function(err, agent) {
-			if(err) {
-			   res.status(500).json({"status_code": 500,"status_message": "internal server error"});
-			   return callback(err);
-		       } else {
-			      return callback(agent); 
-			}
+   @author: Felix   + Julian*/
+function get_agent(listing_id, callback) {
+    db.query("SELECT * FROM listings WHERE listing_id = " + mysql.escape(listing_id)+"", 
+    function(err,rows,fields) {
+        if(err) {
+            res.status(500).json({"status_code": 500,"status_message": "internal server error"});
+            return callback(err);
+        } else {
+            var listings = [];
+            for(var i = 0; i < rows.length; i++) {
+
+                var listing = {
+		    'listing_id' : rows[i].listing_id,
+                    'type' : rows[i].type,
+                    'sqrft' : rows[i].sqrft,
+                    'price' : rows[i].price,
+		    'city' : rows[i].city,
+                    'state' : rows[i].state,
+                    'zipcode' : rows[i].zipcode,
+                    'address' : rows[i].address,
+		    'bedrooms' : rows[i].bedrooms,
+                    'description' : rows[i].description,
+                    'agent_id' : rows[i].agent_id
                 }
-        )
-}
+                listings.push(listing);
+            }
+            return callback(listings);
+        }})}
 
 
 /* Update selected dwelling type from db table listing.
    Types: 1 = House, 2 = Condo, 3 = Apartment 
    Note: Testing req'd
-   @author: Felix                                       */
+   @author: Felix  + Julian  */
 function set_type(listing_id, type, callback) {
-        db.query(update + 
-                "SET type=" + type + " " + 
-                "WHERE listing_id=" + listing_id,
-                function(err, result) {
-                       if(err){
-                               res.status(500).json({"status_code": 500,"status_message": "internal server error"});
-                               return callback(err);
-                       } else {
-                               return callback(result);
-                       }
-               }
-       )
-}
+	db.query("UPDATE TABLE listings SET type = "+mysql.escape(type)+" WHERE listing_id = "+mysql.escape(listing_id)+")", 
+    function(err,rows,fields) {
+        if(err) {
+            res.status(500).json({"status_code": 500,"status_message": "internal server error"});
+            return callback(err);
+        }})}
 
 /* Update selected price from db table listing.
    Note: Testing req'd
-   @author: Felix                                 */
+   @author: Felix  + Julian */
 function set_price(listing_id, price, callback) {
-        db.query(update + 
-                "SET price=" + price + " " + 
-                "WHERE listing_id=" + listing_id,
-                function(err, result) {
-                       if(err){
-                               res.status(500).json({"status_code": 500,"status_message": "internal server error"});
-                               return callback(err);
-                       } else {
-                               return callback(result);
-                       }
-               }
-       )
-}
+	db.query("UPDATE TABLE listings SET price = "+mysql.escape(price)+" WHERE listing_id = "+mysql.escape(listing_id)+")", 
+    function(err,rows,fields) {
+        if(err) {
+            res.status(500).json({"status_code": 500,"status_message": "internal server error"});
+            return callback(err);
+        }})}
 
 /* Update selected listing's address from db table listing.
    Note: Testing req'd
-   @author: Felix                                        */
+   @author: Felix  + Julian  */
+
 function set_address(listing_id, address, callback) {
-        db.query(update + 
-                "SET address=" + mysql.escape(address) + " " + 
-                "WHERE listing_id=" + listing_id,
-                function(err, result) {
-                       if(err){
-                               res.status(500).json({"status_code": 500,"status_message": "internal server error"});
-                               return callback(err);
-                       } else {
-                               return callback(result);
-                       }
-               }
-       )
-}
+	db.query("UPDATE TABLE listings SET address = "+mysql.escape(address)+" WHERE listing_id = "+mysql.escape(listing_id)+")", 
+    function(err,rows,fields) {
+        if(err) {
+            res.status(500).json({"status_code": 500,"status_message": "internal server error"});
+            return callback(err);
+        }})}
+
 
 /* Update selected listing's city from db table listing.
    Note: Testing req'd
-   @author: Felix                                        */
+   @author: Felix + Julian */
 function set_city(listing_id, city, callback) {
-        db.query(update + 
-                "SET city=" + mysql.escape(city) + " " + 
-                "WHERE listing_id=" + listing_id,
-                function(err, result) {
-                       if(err){
-                               res.status(500).json({"status_code": 500,"status_message": "internal server error"});
-                               return callback(err);
-                       } else {
-                               return callback(result);
-                       }
-               }
-       )
-}
+	db.query("UPDATE TABLE listings SET city = "+mysql.escape(city)+" WHERE listing_id = "+mysql.escape(listing_id)+")", 
+    function(err,rows,fields) {
+        if(err) {
+            res.status(500).json({"status_code": 500,"status_message": "internal server error"});
+            return callback(err);
+        }})}
 
 /* Update selected listing's state from db table listing.
    Note: Testing req'd
-   @author: Felix                                        */
+   @author: Felix + Julian  */
 function set_state(listing_id, state, callback) {
-        db.query(update + 
-                "SET state=" + state + " " + 
-                "WHERE listing_id=" + listing_id,
-                function(err, result) {
-                       if(err){
-                               res.status(500).json({"status_code": 500,"status_message": "internal server error"});
-                               return callback(err);
-                       } else {
-                               return callback(result);
-                       }
-               }
-       )
-}
+	db.query("UPDATE TABLE listings SET state = "+mysql.escape(state)+" WHERE listing_id = "+lmysql.escape(isting_id)+")", 
+    function(err,rows,fields) {
+        if(err) {
+            res.status(500).json({"status_code": 500,"status_message": "internal server error"});
+            return callback(err);
+        }})}
 
 /* Update selected listing's zipcode from db table listing.
    Note: Testing req'd
-   @author: Felix                                        */
+   @author: Felix  + Julian */
+
 function set_zipcode(listing_id, zip, callback) {
-        db.query(update + 
-                "SET zipcode=" + zip + " " + 
-                "WHERE listing_id=" + listing_id,
-                function(err, result) {
-                       if(err){
-                               res.status(500).json({"status_code": 500,"status_message": "internal server error"});
-                               return callback(err);
-                       } else {
-                               return callback(result);
-                       }
-               }
-       )
-}
+	db.query("UPDATE TABLE listings SET zipcode = "+mysql.escape(zip)+" WHERE listing_id = "+mysql.escape(listing_id)+")", 
+    function(err,rows,fields) {
+        if(err) {
+            res.status(500).json({"status_code": 500,"status_message": "internal server error"});
+            return callback(err);
+        }})}
 
 /* Update selected listing's available bedrooms from db table listing.
    Note: Testing req'd
    @author: Felix                                                        */
+
 function set_num_beds(listing_id, beds, callback) {
-        db.query(update + 
-                "SET bedrooms=" + beds + " " + 
-                "WHERE listing_id=" + listing_id,
-                function(err, result) {
-                       if(err){
-                               res.status(500).json({"status_code": 500,"status_message": "internal server error"});
-                               return callback(err);
-                       } else {
-                               return callback(result);
-                       }
-               }
-       )
-}
+	db.query("UPDATE TABLE listings SET bedrooms = "+mysql.escape(beds)+" WHERE listing_id = "+mysql.escape(listing_id)+")", 
+    function(err,rows,fields) {
+        if(err) {
+            res.status(500).json({"status_code": 500,"status_message": "internal server error"});
+            return callback(err);
+        }})}
+
 
 /* Update selected listing's available restrooms from db table listing. 
    Note: Testing req'd
-   @author: Felix                                                       */
+   @author: Felix  + Julian  */
+
 function set_num_bathrooms(listing_id, baths, callback) {
-        db.query(update + 
-                "SET bathrooms=" + baths + " " + 
-                "WHERE listing_id=" + listing_id,
-                function(err, result) {
-                       if(err){
-                               res.status(500).json({"status_code": 500,"status_message": "internal server error"});
-                               return callback(err);
-                       } else {
-                               return callback(result);
-                       }
-               }
-       )
-}
+	db.query("UPDATE TABLE listings SET bathrooms = "+mysql.escape(baths)+" WHERE listing_id = "+mysql.escape(listing_id)+")", 
+    function(err,rows,fields) {
+        if(err) {
+            res.status(500).json({"status_code": 500,"status_message": "internal server error"});
+            return callback(err);
+        }})}
 
 /* Update selected listing's images with a new image from db table listing. 
-   May be redundant as images table will have similar function */
+   May be redundant as images table will have similar function
+   @author: Felix + Julian
+   */
+
 function set_image(listing_id, image, callback) {
-        //Needs implementation
-}
+	db.query("UPDATE TABLE image SET image_path = "+mysql.escape(image)+" WHERE listing_id = "+(listing_id)+")", 
+    function(err,rows,fields) {
+        if(err) {
+            res.status(500).json({"status_code": 500,"status_message": "internal server error"});
+            return callback(err);
+        }})}
+
 
 /* Update selected listing's square footage from db table listing.
    Note: Testing req'd
-   @author: Felix                                                */
+   @author: Felix  + Julian */
+
 function set_sqrft(listing_id, sqrft, callback) {
-        db.query(update + 
-                "SET sqrft=" + sqrft + " " + 
-                "WHERE listing_id=" + listing_id,
-                function(err, result) {
-                       if(err){
-                               res.status(500).json({"status_code": 500,"status_message": "internal server error"});
-                               return callback(err);
-                       } else {
-                               return callback(result);
-                       }
-               }
-       )
-}
+	db.query("UPDATE TABLE listings SET sqrft = "+mysql.escape(sqrft)+" WHERE listing_id = "+mysql.escape(listing_id)+")", 
+    function(err,rows,fields) {
+        if(err) {
+            res.status(500).json({"status_code": 500,"status_message": "internal server error"});
+            return callback(err);
+        }})}
 
 /* Update selected listing's description of the property from db table listing.
    Note: Testing req'd
    @author: Felix                                                                */
+
 function set_description(listing_id, description, callback) {
-        db.query(update + 
-                "SET description=" + mysql.escape(description) + " " + 
-                "WHERE listing_id=" + listing_id,
-                function(err, result) {
-                       if(err){
-                               res.status(500).json({"status_code": 500,"status_message": "internal server error"});
-                               return callback(err);
-                       } else {
-                               return callback(result);
-                       }
-               }
-       )
-}
+	db.query("UPDATE TABLE listings SET description = "+mysql.escape(description)+" WHERE listing_id = "+mysql.escape(listing_id)+")", 
+    function(err,rows,fields) {
+        if(err) {
+            res.status(500).json({"status_code": 500,"status_message": "internal server error"});
+            return callback(err);
+        }})}
 
 /* Searches the database for lisings LIKE the passed search query */
 function search(query, callback) {
