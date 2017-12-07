@@ -1,4 +1,5 @@
 const db = require('../connect');
+var moment= require('moment');
 
 var table = "users";
 var insert = "INSERT INTO " + table + " ";
@@ -14,17 +15,17 @@ var del = "DELETE FROM " + table + " ";
 function create_user(fname, lname, phone, email, pwd, callback) {
 var mysqlTimestamp = moment(Date.now()).format('YYYY-MM-DD HH:mm:ss');
 
- db.query("INSERT INTO Users(firstname, lastname, phonenumber, email, createdAt) VALUES ("+mysql.escape(fname)+", "+mysql.escape(lname)+", "+mysql.escape(phone)+", "+mysql.escape(email)+", "+mysqlTimestamp+")", 
+ db.query("INSERT INTO Users(firstname, lastname, phonenumber, email, createdAt) VALUES ("+db.escape(fname)+", "+db.escape(lname)+", "+db.escape(phone)+", "+db.escape(email)+", "+mysqlTimestamp+")", 
     function(err,rows,fields) {
         if(err) {
-            res.status(500).json({"status_code": 500,"status_message": "internal server error"});
+            //res.status(500).json({"status_code": 500,"status_message": "internal server error"});
             return callback(err);
         }})
 	
-	 db.query("INSERT INTO password(email, password) VALUES ("+mysql.escape(email)+", "+mysql.escape(password)+")", 
+	 db.query("INSERT INTO password(email, password) VALUES ("+db.escape(email)+", "+db.escape(pwd)+")", 
     function(err,rows,fields) {
         if(err) {
-            res.status(500).json({"status_code": 500,"status_message": "internal server error"});
+            //res.status(500).json({"status_code": 500,"status_message": "internal server error"});
             return callback(err);
         }})}
 

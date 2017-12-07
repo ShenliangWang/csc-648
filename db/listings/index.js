@@ -15,8 +15,8 @@ var del = "DELETE FROM " + table + " ";
    @author: Felix + Julian*/
 function create_listing(agent_id, house_type, price, city, state, zip, beds, baths, sqrft, description, callback) {
 
- db.query("INSERT INTO listings(type, sqrft, price, city, state, zipcode, bedrooms, bathrooms, description, agent_id) 
- VALUES ("+mysql.escape(house_type)+", "+mysql.escape(sqrft)+", "+mysql.escape(price)+", "+mysql.escape(city)+", "+mysql.escape(state)+", "+mysql.escape(zip)+", "+mysql.escape(beds)+", "+mysql.escape(baths)+", "+mysql.escape(description)+", "+mysql.escape(agent_id)+")", 
+ db.query("INSERT INTO listings(type, sqrft, price, city, state, zipcode, bedrooms, bathrooms, description, agent_id) " + 
+ "VALUES ("+mysql.escape(house_type)+", "+mysql.escape(sqrft)+", "+mysql.escape(price)+", "+mysql.escape(city)+", "+mysql.escape(state)+", "+mysql.escape(zip)+", "+mysql.escape(beds)+", "+mysql.escape(baths)+", "+mysql.escape(description)+", "+mysql.escape(agent_id)+")", 
     function(err,rows,fields) {
         if(err) {
             res.status(500).json({"status_code": 500,"status_message": "internal server error"});
@@ -235,10 +235,9 @@ function search(query, callback) {
 module.exports = {
 	create_listing,
 	delete_listing,
-	get_listing,
 	set_type,
-        set_price,
-        set_address,
+    set_price,
+    set_address,
 	set_city,
 	set_state,
 	set_zipcode,
