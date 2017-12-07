@@ -1,9 +1,13 @@
 var express = require('express');
 var router = express.Router();
 const  db  = require('../db');
+
 var expressValidator = require('express-validator');
 
+var bcrypt = require('bcrypt');
+const saltRounds = 10;
 
+/* Get Registration Page */
 router.get('/', function(req,res,next) {
     res.render('register');
 });
@@ -28,21 +32,26 @@ router.post('/', function(req,res,next) {
         console.log(`errors: ${JSON.stringify(errors)}`);
         res.render('register', {errors: errors});
     }
+    else { //add new user
+        var fname = req.body.fname;
+        var lname = req.body.lname;
+        var phone = req.body.phone;
+        var email = req.body.email;
+        var pwd = req.body.pwd;
 
-    var fname = req.body.fname;
-    var lname = req.body.lname;
-    var phone = req.body.phone;
-    var email = req.body.email;
-    var pwd = req.body.pwd;
+        /* Hashes plain-text pw and stores hash into pw db */
+        bcrypt.hash(pwd, saltRounds, function(err,hash) {
+            db.Users.create_user(fname,lname,phone,email,hash, (err)  => {
+                if(err) {
+                    console.log(err);
+                }
+                else { //success
+                    res.redirect('/');
+                }
+            });
+        })
+    }
 
-    db.Users.create_user(fname,lname,phone,email,pwd, (err)  => {
-        if(err) {
-            console.log(err);
-        }
-        else { //success
-            res.redirect('/');
-        }
-    });
 });
 
 module.exports = router;
