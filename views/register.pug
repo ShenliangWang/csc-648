@@ -27,3 +27,8 @@ block content
                 label Confirm Password                              
                 input.form-control(type='text', placeholder='Confirm Password', name='pwd-match')                   
             button.btn.btn-lg.btn-info(type='submit')  Submit
+    br
+    if errors
+      for error in errors
+        .alert.alert-danger
+          this= error.msg
