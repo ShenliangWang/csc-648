@@ -30,19 +30,32 @@ function get_listing_images(listing_id, callback) {
    will be integers corresponding to the order they are created in. For exa:
    a new image in a new folder will be named 1.jpeg.
    May be redundant as listing's table will have similar function             */
+
 function set_image(listing_id, image, callback) {
-        //Needs implementation
-}
+	db.query("UPDATE TABLE image SET image_path = "+mysql.escape(image)+" WHERE listing_id = "+mysql.escape(listing_id)+")", 
+    function(err,rows,fields) {
+        if(err) {
+            res.status(500).json({"status_code": 500,"status_message": "internal server error"});
+            return callback(err);
+        }})}
 
 // Deletes a selected image from the table images in the db.
 function delete_image(image_id, callback) {
-		//Needs implementation
-}
+	db.query("DELETE * FROM image WHERE image_pk = "+mysql.escape(image_id)+")", 
+    function(err,rows,fields) {
+        if(err) {
+            res.status(500).json({"status_code": 500,"status_message": "internal server error"});
+            return callback(err);
+        }})}
 
 // Deletes all images associated with a listing from the images table.
 function delete_img_by_listing(listing_id, callback) {
-		//Needs implementation
-}
+	db.query("DELETE * FROM image WHERE listing_id = "+mysql.escape(listing_id)")", 
+    function(err,rows,fields) {
+        if(err) {
+            res.status(500).json({"status_code": 500,"status_message": "internal server error"});
+            return callback(err);
+        }})}
 
 
 
