@@ -85,7 +85,7 @@ function set_phone(agent_email,phone,callback) {
    Note: Testing req'd
    @author: Felix + Julian  */
 
-
+/*Priority 2
 function set_email(agent_id,email,callback) {
 	db.query("UPDATE TABLE Agents SET email = ? WHERE agent_id = ?", [email, agent_id], 
     function(err,rows,fields) {
@@ -93,8 +93,9 @@ function set_email(agent_id,email,callback) {
             res.status(500).json({"status_code": 500,"status_message": "internal server error"});
             return callback(err);
         }})}
-
+*/
 /* Update selected agent's password from db table agents. */
+/*Priority 2
 function set_password(agent_email,pword,callback) {
 	db.query("UPDATE TABLE password SET password = ? WHERE email = ?" [pword, agent_email], 
     function(err,rows,fields) {
@@ -103,7 +104,7 @@ function set_password(agent_email,pword,callback) {
             return callback(err);
         }})}
 
-
+*/
 
 
 module.exports = {
