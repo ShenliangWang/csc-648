@@ -15,14 +15,14 @@ var del = "DELETE FROM " + table + " ";
 function create_user(fname, lname, phone, email, pwd, callback) {
 var mysqlTimestamp = moment(Date.now()).format('YYYY-MM-DD HH:mm:ss');
 
- db.query("INSERT INTO Users(firstname, lastname, phonenumber, associated_email, createdAt) VALUES ("+db.escape(fname)+", "+db.escape(lname)+", "+db.escape(phone)+", "+db.escape(email)+", "+mysqlTimestamp+")", 
+ db.query("INSERT INTO Users(firstname, lastname, phonenumber, email, createdAt) VALUES (?, ?, ?, ?)", [fname, lname, phone, email],
     function(err,rows,fields) {
         if(err) {
             //res.status(500).json({"status_code": 500,"status_message": "internal server error"});
             return callback(err);
         }})
 	
-	 db.query("INSERT INTO password(email, password) VALUES ("+db.escape(email)+", "+db.escape(pwd)+")", 
+	 db.query("INSERT INTO password(email, password) VALUES (?, ?)", [email, pwd], 
     function(err,rows,fields) {
         if(err) {
             //res.status(500).json({"status_code": 500,"status_message": "internal server error"});
@@ -34,7 +34,7 @@ var mysqlTimestamp = moment(Date.now()).format('YYYY-MM-DD HH:mm:ss');
    Note: Testing required.
    @author: Felix + Julian*/
 function get_user(user_id, callback) {
-    db.query("SELECT * FROM Users WHERE user_id = " + mysql.escape(user_id) +"", 
+    db.query("SELECT * FROM Users WHERE user_id = ?", [user_id], 
     function(err,rows,fields) {
         if(err) {
             res.status(500).json({"status_code": 500,"status_message": "internal server error"});
@@ -59,7 +59,7 @@ function get_user(user_id, callback) {
    @author: Felix. + Julian */
 
 function set_fname(user_id,fname,callback) {
-	db.query("UPDATE TABLE Users SET firstname = "+mysql.escape(fname)+" WHERE user_id = "+mysql.escape(user_id)+")", 
+	db.query("UPDATE TABLE Users SET firstname = ? WHERE user_id = ?", [fname, user_id], 
     function(err,rows,fields) {
         if(err) {
             res.status(500).json({"status_code": 500,"status_message": "internal server error"});
@@ -67,7 +67,7 @@ function set_fname(user_id,fname,callback) {
         }})}
 
 function set_fname(user_email,fname,callback) {
-	db.query("UPDATE TABLE Users SET firstname = "+mysql.escape(fname)+" WHERE email = "+mysql.escape(user_email)+")", 
+	db.query("UPDATE TABLE Users SET firstname = ? WHERE email = ?", [fname, user_email], 
     function(err,rows,fields) {
         if(err) {
             res.status(500).json({"status_code": 500,"status_message": "internal server error"});
@@ -78,7 +78,7 @@ function set_fname(user_email,fname,callback) {
    Note: Testing required.
    @author: Felix. + Julian */
 function set_lname(user_id, lname, callback) {
-	db.query("UPDATE TABLE Users SET lastname = "+mysql.escape(lname)+" WHERE user_id = "+mysql.escape(user_id)+")", 
+	db.query("UPDATE TABLE Users SET lastname = ? WHERE user_id = ?", [lname, user_id], 
     function(err,rows,fields) {
         if(err) {
             res.status(500).json({"status_code": 500,"status_message": "internal server error"});
@@ -86,7 +86,7 @@ function set_lname(user_id, lname, callback) {
         }})}
 
 function set_lname(user_email,lname,callback) {
-	db.query("UPDATE TABLE Users SET lastname = "+mysql.escape(lname)+" WHERE email = "+mysql.escape(user_email)+")", 
+	db.query("UPDATE TABLE Users SET lastname = ? WHERE email = ?", [lname, user_email], 
     function(err,rows,fields) {
         if(err) {
             res.status(500).json({"status_code": 500,"status_message": "internal server error"});
@@ -97,7 +97,7 @@ function set_lname(user_email,lname,callback) {
    Note: Testing required.
    @author: Felix. 				 */
 function set_phone(user_id,phone,callback) {
-	db.query("UPDATE TABLE Users SET phonenumber = "+mysql.escape(phone)+" WHERE user_id = "+mysql.escape(user_id)+")", 
+	db.query("UPDATE TABLE Users SET phonenumber = ? WHERE user_id = ?", [phone, user_id], 
     function(err,rows,fields) {
         if(err) {
             res.status(500).json({"status_code": 500,"status_message": "internal server error"});
@@ -105,7 +105,7 @@ function set_phone(user_id,phone,callback) {
         }})}
 
 function set_phone(user_email,phone,callback) {
-	db.query("UPDATE TABLE Users SET phonenumber = "+mysql.escape(phone)+" WHERE email = "+mysql.escape(user_email)+")", 
+	db.query("UPDATE TABLE Users SET phonenumber = ? WHERE email = ?", [phone, user_email], 
     function(err,rows,fields) {
         if(err) {
             res.status(500).json({"status_code": 500,"status_message": "internal server error"});
@@ -116,17 +116,19 @@ function set_phone(user_email,phone,callback) {
 /* Update selected user's email from db table users.
    Note: Testing required.
    @author: Felix. + Julian */
+/* Priority 2
 function set_email(user_id,email,callback) {
-	db.query("UPDATE TABLE Users SET email = "+mysql.escape(email)+" WHERE user_id = "+mysql.escape(agent_id)+")", 
+	db.query("UPDATE TABLE Users SET email = ? WHERE user_id = ?", [email, user_id], 
     function(err,rows,fields) {
         if(err) {
             res.status(500).json({"status_code": 500,"status_message": "internal server error"});
             return callback(err);
         }})}
-
+*/
 /* Update selected users's password from db table userss. 
   @author: Felix. + Julian 
 */
+/*Priority 2
 function set_password(user_email,pword,callback) {
 	db.query("UPDATE TABLE password SET password = "+mysql.escape(pword)+" WHERE email = "+mysql.escape(user_email)+")", 
     function(err,rows,fields) {
@@ -134,7 +136,7 @@ function set_password(user_email,pword,callback) {
             res.status(500).json({"status_code": 500,"status_message": "internal server error"});
             return callback(err);
         }})}
-
+*/
 
 
 
