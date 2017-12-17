@@ -84,33 +84,6 @@ INSERT INTO `Users` VALUES (1,'Harley','Quinn','harleyAndMrJ@puddin.com','650229
 UNLOCK TABLES;
 
 --
--- Table structure for table `agent_password`
---
-
-DROP TABLE IF EXISTS `agent_password`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `agent_password` (
-  `password_id` int(3) NOT NULL AUTO_INCREMENT,
-  `agent_email` varchar(40) NOT NULL,
-  `agent_password` varchar(255) NOT NULL,
-  PRIMARY KEY (`password_id`),
-  KEY `agent_email` (`agent_email`),
-  CONSTRAINT `agent_password_ibfk_1` FOREIGN KEY (`agent_email`) REFERENCES `Agents` (`email`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `agent_password`
---
-
-LOCK TABLES `agent_password` WRITE;
-/*!40000 ALTER TABLE `agent_password` DISABLE KEYS */;
-INSERT INTO `agent_password` VALUES (1,'CptSparrow@essos.com','TheBlackPearl');
-/*!40000 ALTER TABLE `agent_password` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `image`
 --
 
@@ -209,7 +182,7 @@ DROP TABLE IF EXISTS `password`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `password` (
   `password_id` int(3) NOT NULL AUTO_INCREMENT,
-  `associated_email` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `created_at` datetime DEFAULT NULL,
   PRIMARY KEY (`password_id`)
@@ -225,33 +198,6 @@ LOCK TABLES `password` WRITE;
 INSERT INTO `password` VALUES (1,'harleyAndMrJ@puddin.com','notSuchASecretPasswordBatsy','2017-11-23 08:51:25'),(2,'CptSparrow@essos.com','TheBlackPerl','2017-11-23 08:53:30');
 /*!40000 ALTER TABLE `password` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `user_password`
---
-
-DROP TABLE IF EXISTS `user_password`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `user_password` (
-  `password_id` int(3) NOT NULL AUTO_INCREMENT,
-  `user_email` varchar(255) NOT NULL,
-  `user_password` varchar(255) NOT NULL,
-  PRIMARY KEY (`password_id`),
-  KEY `user_email` (`user_email`),
-  CONSTRAINT `user_password_ibfk_1` FOREIGN KEY (`user_email`) REFERENCES `Users` (`email`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `user_password`
---
-
-LOCK TABLES `user_password` WRITE;
-/*!40000 ALTER TABLE `user_password` DISABLE KEYS */;
-INSERT INTO `user_password` VALUES (1,'harleyAndMrJ@puddin.com','notSuchASecretPasswordBatsy');
-/*!40000 ALTER TABLE `user_password` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -262,4 +208,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-11-28  6:57:41
+-- Dump completed on 2017-12-17 21:13:04
