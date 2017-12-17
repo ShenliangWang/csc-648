@@ -61,7 +61,7 @@ function delete_image(image_id, callback) {
 /* Deletes all images associated with a listing from the images table.
 @author: Shenliang */
 function delete_img_by_listing(listing_id, callback) {
-    db.query("DELETE * FROM listings WHERE listing_id = "+mysql.escape(listing_id)+")", 
+    db.query("DELETE * FROM image WHERE listing_id = "+mysql.escape(listing_id)+")", 
     function(err,rows,fields) {
         if(err) {
             res.status(500).json({"status_code": 500,"status_message": "internal server error"});
