@@ -109,8 +109,5 @@ function set_password(agent_email,pword,callback) {
 
 module.exports = {
 	create_agent,
-	get_agent,
-	set_phone,
-	set_email,
-	set_password
+	get_agent
 };

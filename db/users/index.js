@@ -13,9 +13,9 @@ var del = "DELETE FROM " + table + " ";
   
 
 function create_user(fname, lname, phone, email, pwd, callback) {
-var mysqlTimestamp = moment(Date.now()).format('YYYY-MM-DD HH:mm:ss');
+ var mysqlTimestamp = moment(Date.now()).format('YYYY-MM-DD HH:mm:ss');
 
- db.query("INSERT INTO Users(firstname, lastname, phonenumber, email, createdAt) VALUES (?, ?, ?, ?)", [fname, lname, phone, email],
+ db.query("INSERT INTO Users(firstname, lastname, phonenumber, email, createdAt) VALUES (?, ?, ?, ?, ?)", [fname, lname, phone, email, mysqlTimestamp],
     function(err,rows,fields) {
         if(err) {
             //res.status(500).json({"status_code": 500,"status_message": "internal server error"});
@@ -27,7 +27,10 @@ var mysqlTimestamp = moment(Date.now()).format('YYYY-MM-DD HH:mm:ss');
         if(err) {
             //res.status(500).json({"status_code": 500,"status_message": "internal server error"});
             return callback(err);
-        }})}
+        }})
+
+        callback();
+    }
 
 
 /* Gets user from db table user
@@ -145,7 +148,5 @@ module.exports = {
 	get_user,
 	set_fname,
 	set_lname,
-	set_phone,
-	set_email,
-	set_password
+	set_phone
 };
