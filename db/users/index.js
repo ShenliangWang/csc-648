@@ -41,24 +41,25 @@ function create_user(fname, lname, phone, email, pwd, callback) {
 function get_user(user_id, callback) {
     db.query("SELECT * FROM Users WHERE user_id = ?", [user_id], 
     
-    function(err,rows,fields) {
-        if(err) {
-            res.status(500).json({"status_code": 500,"status_message": "internal server error"});
-            return callback(err);
-        } else {
-            var users = [];
-            for(var i = 0; i < rows.length; i++) {
-                var user = {
-		            'user_id' : rows[i].user_id,
-                    'firstname' : rows[i].firstname,
-                    'lastname' : rows[i].lastname,
-                    'phonenumber' : rows[i].zipcode,
-                    'email' : rows[i].email
+        function(err,rows,fields) {
+            if(err) {
+                res.status(500).json({"status_code": 500,"status_message": "internal server error"});
+                return callback(err);
+            }else {
+                var users = [];
+                for(var i = 0; i < rows.length; i++) {
+                    var user = {
+		                'user_id' : rows[i].user_id,
+                        'firstname' : rows[i].firstname,
+                        'lastname' : rows[i].lastname,
+                        'phonenumber' : rows[i].zipcode,
+                        'email' : rows[i].email
+                    }
+                    users.push(user);
                 }
-                users.push(user);
+                return callback(users);
             }
-            return callback(users);
-        }}
+        }
     )
 }
 
