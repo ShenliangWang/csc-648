@@ -8,7 +8,6 @@ var update = "UPDATE " +  table + " ";
 var del = "DELETE FROM " + table + " ";
 
 /* insert new user to users table in db 
-   Note: Testing required.
    @author: Felix. 	+ Julian		*/
 function create_user(fname, lname, phone, email, pwd, callback) {
     var mysqlTimestamp = moment(Date.now()).format('YYYY-MM-DD HH:mm:ss');
@@ -16,7 +15,6 @@ function create_user(fname, lname, phone, email, pwd, callback) {
     db.query("INSERT INTO Users(firstname, lastname, phonenumber, email, createdAt) VALUES (?, ?, ?, ?, ?)", [fname, lname, phone, email, mysqlTimestamp],
         function(err,rows,fields) {
             if(err) {
-                //res.status(500).json({"status_code": 500,"status_message": "internal server error"});
                 return callback(err);
             }
         }
@@ -25,7 +23,6 @@ function create_user(fname, lname, phone, email, pwd, callback) {
     db.query("INSERT INTO password(email, password) VALUES (?, ?)", [email, pwd], 
         function(err,rows,fields) {
             if(err) {
-                //res.status(500).json({"status_code": 500,"status_message": "internal server error"});
                 return callback(err);
             }
         }
@@ -43,7 +40,6 @@ function get_user(user_id, callback) {
     
         function(err,rows,fields) {
             if(err) {
-                res.status(500).json({"status_code": 500,"status_message": "internal server error"});
                 return callback(err);
             }else {
                 var users = [];
@@ -71,7 +67,6 @@ function set_fname(user_id,fname,callback) {
 	db.query("UPDATE TABLE Users SET firstname = ? WHERE user_id = ?", [fname, user_id], 
         function(err,rows,fields) {
             if(err) {
-                res.status(500).json({"status_code": 500,"status_message": "internal server error"});
                 return callback(err);
             }
         }
@@ -99,7 +94,6 @@ function set_lname(user_id, lname, callback) {
 	db.query("UPDATE TABLE Users SET lastname = ? WHERE user_id = ?", [lname, user_id], 
         function(err,rows,fields) {
             if(err) {
-                res.status(500).json({"status_code": 500,"status_message": "internal server error"});
                 return callback(err);
             }
         }
@@ -127,7 +121,6 @@ function set_phone(user_id,phone,callback) {
 	db.query("UPDATE TABLE Users SET phonenumber = ? WHERE user_id = ?", [phone, user_id], 
         function(err,rows,fields) {
             if(err) {
-                res.status(500).json({"status_code": 500,"status_message": "internal server error"});
                 return callback(err);
             }
         }
