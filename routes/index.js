@@ -4,6 +4,8 @@ const  db  = require('../db');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+    console.log(req.user);
+    console.log(req.isAuthenticated());
     res.render('index', { title: 'Essos Real Estate'});
 });
 
