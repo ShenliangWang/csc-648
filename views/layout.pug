@@ -8,6 +8,16 @@ html
       content='width=device-width, initial-scale=1, shrink-to-fit=no'
     )
 
+    //Global site tag (gtag.js) - Google Analytics
+    script(async src="https://www.googletagmanager.com/gtag/js?id=UA-111392469-1")
+    script(type='text/javascript').
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-111392469-1');
+
+
     // Bootsrap core CSS
     link(href='vendor/bootstrap/css/bootstrap.min.css', rel='stylesheet')
     link(href='stylesheets/half-slider.css', rel='stylesheet')
