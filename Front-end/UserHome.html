@@ -32,10 +32,10 @@
           
                 <div class="input-group">
         
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" style="width: 500px;">
                 
                     <div class="input-group-btn">
-                        <button type="button" class="btn btn-search btn-danger" onclick="relocate_home()">
+                        <button type="button" class="btn btn-search btn-primary" onclick="relocate_home()">
                             <span class="glyphicon glyphicon-search"></span>
                             <span class="label-icon">Search</span>
                         </button>
@@ -58,15 +58,25 @@
               <a class="nav-link" href="about.html">About us</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Agent</a>
+              <a class="nav-link" href="" data-toggle="modal" data-target="#AgentLoginModal"> Agent</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="index.html">Welcome User!, Sign out</a>
+     
+            
+            <li class="nav-item" >
+              <a class="nav-link" href="" data-toggle="modal" data-target="#loginModal">Sign In</a>
             </li>
+            
+            
+            <li class="nav-item" >
+          <a class="nav-link" href="" data-toggle="modal" data-target="#exampleModal">Welcome User, Sign Out</a>
+        </li>
+            
+            
           </ul>
         </div>
       </div>
     </nav>
+
 
     
     
@@ -110,6 +120,91 @@
         </a>
       </div>
     </header>
+
+       <!-- Logout Modal-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Are you sure you want to log out? Click "Logout" below to end your session.</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <a class="btn btn-primary" href="login.html">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+       <!-- LogIn Modal-->
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="loginModalLabel">User Sign In</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          
+          </div>
+          <div class="col-sm-6 form-group">
+          <div class="modal-body "></div>
+          <input type="text" class="form-control" placeholder="User Email" style="width: 400px;">
+          </br>
+          <input type="text" class="form-control" placeholder="Password" style="width: 400px;">
+          
+          </div>
+         
+          <div class="modal-footer">
+            
+            <a class="btn btn-warning " href="Registration.html">Register</a>
+            
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            
+            <!-- change to userHome-->
+            <a class="btn btn-primary" href="UserHome.html">Log in</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+         <!-- Agent LogIn Modal-->
+    <div class="modal fade" id="AgentLoginModal" tabindex="-1" role="dialog" aria-labelledby="AgentLoginModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="AgentLoginModalLabel">Agent Sign In</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          
+          </div>
+          <div class="col-sm-6 form-group">
+          <div class="modal-body "></div>
+          <input type="text" class="form-control" placeholder="Agent Email" style="width: 400px;">
+          </br>
+          <input type="text" class="form-control" placeholder="Password" style="width: 400px;">
+          
+          </div>
+         
+          <div class="modal-footer">
+            
+            <a class="btn btn-warning " href="AgentRegistration.html">Register</a>
+            
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            
+            <!-- change to Agent Dashboard-->
+            <a class="btn btn-primary" href="Agent/Agent.html">Log in</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
 
     
     

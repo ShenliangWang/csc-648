@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
 
     <title>Individual post</title>
 
@@ -16,46 +19,53 @@
     <!-- Custom styles for this template -->
     <link href="css/halfslider.css" rel="stylesheet">
 
+    <style>
+      #map {
+        height: 280px;
+        width: 90%;
+      }
+    </style>
+
+
+
   </head>
 
 
 
   <body>
 
-   <!-- Navigation -->    
-   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <!-- Navigation -->    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
         <a class="navbar-brand" href="index.html">Essos </a>    
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        
+
         <form class="navbar-form navbar-search" role="search">
-          
-                <div class="input-group">
-        
-                    <input type="text" class="form-control" style="width: 500px;">
-                
-                    <div class="input-group-btn">
-                        <button type="button" class="btn btn-search btn-danger" onclick="relocate_home()">
-                            <span class="glyphicon glyphicon-search"></span>
-                            <span class="label-icon">Search</span>
-                        </button> 
-                        
-                      
-                      <script>
-                        function relocate_home()
-                        {
-                          location.href = "result.html";
-                        } 
-                      </script>
-                        
-                    </div>
-                </div>  
-            </form> 
+
+          <div class="input-group">
+
+            <input type="text" class="form-control" style="width: 500px;">
+
+            <div class="input-group-btn">
+              <button type="button" class="btn btn-search btn-primary" onclick="relocate_home()">
+                <span class="glyphicon glyphicon-search"></span>
+                <span class="label-icon">Search</span>
+              </button> 
 
 
+              <script>
+                function relocate_home()
+                {
+                  location.href = "result.html";
+                }
+              </script>
+
+            </div>
+          </div>  
+        </form> 
 
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
@@ -63,64 +73,34 @@
               <a class="nav-link" href="about.html">About us</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Agent</a>
+              <a class="nav-link" href="" data-toggle="modal" data-target="#AgentLoginModal"> Agent</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="Registration.html">Sign In</a>
+     
+            
+            <li class="nav-item" >
+              <a class="nav-link" href="" data-toggle="modal" data-target="#loginModal">Sign In</a>
             </li>
+            
+            
+            <li class="nav-item" >
+              <a class="nav-link" href="" data-toggle="modal" data-target="#exampleModal">Sign Out</a>
+            </li>
+            
           </ul>
         </div>
       </div>
 
     </nav>
 
-     <header>
-      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner" role="listbox">
-          <!-- Slide One - Set the background image for this slide in the line below -->
-          <div class="carousel-item active" style="background-image: url('http://placehold.it/1900x1080')">
-            <div class="carousel-caption d-none d-md-block">
-              <h3>First Slide</h3>
-              <p>This is a description for the first slide.</p>
-            </div>
-          </div>
-          <!-- Slide Two - Set the background image for this slide in the line below -->
-          <div class="carousel-item" style="background-image: url('http://placehold.it/1900x1080')">
-            <div class="carousel-caption d-none d-md-block">
-              <h3>Second Slide</h3>
-              <p>This is a description for the second slide.</p>
-            </div>
-          </div>
-          <!-- Slide Three - Set the background image for this slide in the line below -->
-          <div class="carousel-item" style="background-image: url('http://placehold.it/1900x1080')">
-            <div class="carousel-caption d-none d-md-block">
-              <h3>Third Slide</h3>
-              <p>This is a description for the third slide.</p>
-            </div>
-          </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-    </header>  
-
-
     <!-- Page Content -->
     <div class="container">
-      <br/><br/></br>
+      <br/></br></br>
       <!-- Portfolio Item Heading -->
-      
+      <h5>
+        <a class="nav-link" href="result.html"> back to search</a>
+      </h5>
+
+
       <h1 class="my-4">Property Title
         <small>(Location)</small>
       </h1>
@@ -128,13 +108,67 @@
       <!-- Portfolio Item Row -->
       <div class="row">
 
-        <div class="col-md-8">
-          <img class="img-fluid" src="http://placehold.it/750x500" alt="">
+        <div class="w3-content w3-display-container">
+          <!-- link image to database -->
+          <img class="mySlides" src="http://placehold.it/750x500" style="width:100%">
+          <img class="mySlides" src="http://placehold.it/750x450" style="width:100%">
+          <img class="mySlides" src="http://placehold.it/750x400" style="width:100%">
+          <img class="mySlides" src="http://placehold.it/750x350" style="width:100%">
+          <img class="mySlides" src="http://placehold.it/750x300" style="width:100%">
+
+          <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+          <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
         </div>
 
+        <script>
+          var slideIndex = 1;
+          showDivs(slideIndex);
+
+          function plusDivs(n) {
+            showDivs(slideIndex += n);
+          }
+
+          function showDivs(n) {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            if (n > x.length) {
+              slideIndex = 1
+            }
+            if (n < 1) {
+              slideIndex = x.length
+            }
+            for (i = 0; i < x.length; i++) {
+              x[i].style.display = "none";
+            }
+            x[slideIndex - 1].style.display = "block";
+          }
+        </script>
+
+
         <div class="col-md-4">
-          <h3 class="my-3">Property Description</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim.</p>
+
+
+
+          <!-- map -->
+          <div id="map"></div>
+          <script>
+            function initMap() {
+              var uluru = {lat: -25.363, lng: 131.044};
+              var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 4,
+                center: uluru
+              });
+              var marker = new google.maps.Marker({
+                position: uluru,
+                map: map
+              });
+            }
+          </script>
+          <script async defer
+                  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGf7v2z21y1mcjDcD4ARc7M6jmKdDYdj4&callback=initMap">
+          </script>
+          <!-- end map api -->
+
           <h3 class="my-3">Property Details</h3>
           <ul>
             <li>Lorem Ipsum</li>
@@ -142,10 +176,27 @@
             <li>Consectetur</li>
             <li>Adipiscing Elit</li>
           </ul>
+
+
+          <button type="button" data-toggle="modal"  data-target="#BookmarkModal" class="btn btn-warning">Bookmark</button>
+          <button type="button" data-toggle="modal"  data-target="#ContactAgentModal" class="btn btn-warning">Contact Agent</button>
+          
         </div>
 
+        <div class="col-md-10">
+          <h3 class="my-3">Property Description</h3>
+          <p>description here. description here. description here. description here. 
+            description here. description here. description here. description here. 
+            description here. description here. description here. description here. 
+            description here. description here. description here. description here. 
+            description here. description here. description here. description here. 
+            description here. description here. description here. description here. 
+            description here. description here. </p>
+
+        </div>
       </div>
       <!-- /.row -->
+
 
       <!-- Related Projects Row -->
       <h3 class="my-4">Related Properties</h3>
@@ -181,6 +232,165 @@
 
     </div>
     <!-- /.container -->
+
+
+
+    <!-- Contact agent modal-->
+    <div class="modal fade" id="ContactAgentModal" tabindex="-1" role="dialog" aria-labelledby="contactAgentModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="contactAgentModalLabel">Input Messages:</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">
+
+            <div class="col form-group">
+              <div class="modal-body "></div>
+              <input type="text" class="form-control" placeholder="Contact name">
+              </br>
+              <input type="text" class="form-control" placeholder="Email or phone number">
+              </br>
+              <div class="form-group">
+
+                <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Type your message here" rows="5"></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <!-- link to agent's message box -->
+            <button data-toggle="modal"  data-target="#MessageSentModal" class="btn btn-primary" type="button" data-dismiss="modal">Send</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+      <!-- Message Sent Modal-->
+    <div class="modal fade" id="MessageSentModal" tabindex="-1" role="dialog" aria-labelledby="MessageSentModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Message Sent!</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Congratulations! Your message has been sent to the agent of this property. Expect a reply within next 4-5 business days.</div>
+          <div class="modal-footer">
+            <button class="btn btn-primary" type="button" data-dismiss="modal">Done</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+     <!-- Bookmark Modal-->
+    <div class="modal fade" id="BookmarkModal" tabindex="-1" role="dialog" aria-labelledby="BookmarkModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Bookmark successful</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Congratulations! This property has been added to your bookmarks.</div>
+          <div class="modal-footer">
+            <button class="btn btn-primary" type="button" data-dismiss="modal">Done</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+     <!-- Logout Modal-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Are you sure you want to log out? Click "Logout" below to end your session.</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <a class="btn btn-primary" href="login.html">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+       <!-- LogIn Modal-->
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="loginModalLabel">User Sign In</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          
+          </div>
+          <div class="col-sm-6 form-group">
+          <div class="modal-body "></div>
+          <input type="text" class="form-control" placeholder="User Email" style="width: 400px;">
+          </br>
+          <input type="text" class="form-control" placeholder="Password" style="width: 400px;">
+          
+          </div>
+         
+          <div class="modal-footer">
+            
+            <a class="btn btn-warning " href="Registration.html">Register</a>
+            
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            
+            <!-- change to userHome-->
+            <a class="btn btn-primary" href="UserHome.html">Log in</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+         <!-- Agent LogIn Modal-->
+    <div class="modal fade" id="AgentLoginModal" tabindex="-1" role="dialog" aria-labelledby="AgentLoginModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="AgentLoginModalLabel">Agent Sign In</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          
+          </div>
+          <div class="col-sm-6 form-group">
+          <div class="modal-body "></div>
+          <input type="text" class="form-control" placeholder="Agent Email" style="width: 400px;">
+          </br>
+          <input type="text" class="form-control" placeholder="Password" style="width: 400px;">
+          
+          </div>
+         
+          <div class="modal-footer">
+            
+            <a class="btn btn-warning " href="AgentRegistration.html">Register</a>
+            
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            
+            <!-- change to Agent Dashboard-->
+            <a class="btn btn-primary" href="Agent/Agent.html">Log in</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
 
     <!-- Footer -->
     <footer class="py-5 bg-dark">

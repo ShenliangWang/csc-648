@@ -19,9 +19,10 @@
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
+  
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="index1.html">Essos</a>
+    <a class="navbar-brand" href="../index.html">Essos</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -30,7 +31,7 @@
       <div class="input-group">
         <input type="text" class="form-control" style="width: 500px;">    
         <div class="input-group-btn">
-          <button type="button" class="btn btn-search btn-danger" onclick="relocate_home()">
+          <button type="button" class="btn btn-search btn-primary" onclick="relocate_home()">
               <span class="glyphicon glyphicon-search"></span>
               <span class="label-icon">Search</span>
           </button>             
@@ -58,6 +59,12 @@
             <span class="nav-link-text">Messages</span>
           </a>
         </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Messages">
+          <a class="nav-link" href="Bookmarks.html">
+            <i class="fa fa-fw fa-bookmark"></i>
+            <span class="nav-link-text">Bookmarks</span>
+          </a>
+        </li>
          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
           <a class="nav-link" href="MyPosts.html">
             <i class="fa fa-fw fa-list"></i>
@@ -83,28 +90,34 @@
       <ul class="navbar-nav ml-auto">
 
         <li class="nav-item">
-              <a class="nav-link" href="about.html">About us</a>
+              <a class="nav-link" href="../about.html">About us</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" href="#">Agent</a>
         </li>
         <li class="nav-item">
-           <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
-          <i class="fa fa-fw fa-sign-out"></i>Sign Out</a>
+           <a class="nav-link" data-toggle="modal" data-target="#exampleModal">Sign Out</a>
         </li>
       </ul>
     </div>
   </nav>
 
   <div class="content-wrapper">
+    <h1 class="my-4"> Welcome, agent! </h1>
+    <h3>Please open the Messages tab to view your most recent messages.</h3>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+ 
+
+    </div>
+    <!-- /.container -->
+     
 
 
-    
-     <footer class="py-5 bg-dark">
+    <footer class="py-5 bg-dark">
       <div class="container">
         <p class="m-0 text-center text-white">Copyright &copy; Team 06 SFSU SE Fall 2017</p>
       </div>
-      <!-- /.container -->
     </footer>
 
 
@@ -126,7 +139,7 @@
           <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="login.html">Logout</a>
+            <a class="btn btn-primary" href="../index.html">Logout</a>
           </div>
         </div>
       </div>

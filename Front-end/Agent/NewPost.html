@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>New Post - Dashboard</title>
+  <!-- Bootstrap core CSS-->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom fonts for this template-->
+  <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <!-- Page level plugin CSS-->
+  <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin.css" rel="stylesheet">
+</head>
+
+<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+  <!-- Navigation-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <a class="navbar-brand" href="../index.html">Essos</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <form class="navbar-form navbar-search" role="search"> 
+      <div class="input-group">
+        <input type="text" class="form-control" style="width: 500px;">    
+        <div class="input-group-btn">
+          <button type="button" class="btn btn-search btn-primary" onclick="relocate_home()">
+              <span class="glyphicon glyphicon-search"></span>
+              <span class="label-icon">Search</span>
+          </button>             
+          <script>
+            function relocate_home()
+            {
+              location.href = "result.html";
+            } 
+          </script>            
+        </div>
+      </div>  
+    </form>   
+
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+          <a class="nav-link" href="Agent.html">
+            <i class="fa fa-fw fa-dashboard"></i>
+            <span class="nav-link-text">Agent Dashboard</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
+          <a class="nav-link" href="Messages.html">
+            <i class="fa fa-fw fa-envelope"></i>
+            <span class="nav-link-text">Messages</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Messages">
+          <a class="nav-link" href="Bookmarks.html">
+            <i class="fa fa-fw fa-bookmark"></i>
+            <span class="nav-link-text">Bookmarks</span>
+          </a>
+        </li>
+         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
+          <a class="nav-link" href="MyPosts.html">
+            <i class="fa fa-fw fa-list"></i>
+            <span class="nav-link-text">My Posts</span>
+          </a>
+        </li>
+        <li class="nav-item active" data-toggle="tooltip" data-placement="right" title="Tables">
+          <a class="nav-link" href="NewPost.html">
+            <i class="fa fa-fw fa-plus"></i>
+            <span class="nav-link-text">New Post</span>
+          </a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav sidenav-toggler">
+        <li class="nav-item">
+          <a class="nav-link text-center" id="sidenavToggler">
+            <i class="fa fa-fw fa-angle-left"></i>
+          </a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav ml-auto">
+
+        <li class="nav-item">
+              <a class="nav-link" href="../about.html">About us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Agent</a>
+        </li>
+        <li class="nav-item">
+           <a class="nav-link" data-toggle="modal" data-target="#exampleModal">Sign Out</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="content-wrapper">
+    <div class="container-fluid">
+      <!-- Breadcrumbs-->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="Agent.html">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active">New Post</li>
+      </ol>
+      <!-- Example DataTables Card-->
+      <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-plus-square-o"></i> Enter details to post a new property
+        </div>
+        <div class="card-body">
+        <!-- Page Content -->
+        <div class="container">
+          <form>
+            <div class="form-group">
+              <label for="inputAddress">Address line 1</label>
+              <input type="text" class="form-control" id="inputAddress1" placeholder="1234 Main St">
+            </div>
+            <div class="form-group">
+              <label for="inputAddress2">Address line 2</label>
+              <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputCity">City</label>
+                <input type="text" class="form-control" id="inputCity" placeholder="E.g. San Francisco">
+              </div>
+              <div class="form-group col-md-4">
+                <label for="inputState">State</label>
+                <input type="text" class="form-control" id="inputState" placeholder="E.g. California">
+              </div>
+              <div class="form-group col-md-2">
+                <label for="inputZip">Zip</label>
+                <input type="text" class="form-control" id="inputZip" placeholder="12345">
+              </div>
+            </div>
+            <br>
+            <div class="form-group">
+              <label for="Title">Title</label>
+              <input type="title" class="form-control" id="PropertyTitle" placeholder="E.g. Apartment in downtown San Francisco">
+            </div>
+            <div class="form-group">
+              <label for="Description"> Description </label>
+              <textarea class="form-control" id="PropertyDescription" rows="3" placeholder="Describe your property"></textarea>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-2">
+                <label for="Bedrooms">Bedrooms</label>
+                <select class="form-control" id="Bedrooms">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                  <option>6</option>
+                  <option>7+</option>
+                </select>
+              </div>
+              <div class="form-group col-md-2">
+                <label for="Bedrooms">Bathrooms</label>
+                <select class="form-control" id="Bathrooms">
+                  <option>1</option>
+                  <option>1.5</option>
+                  <option>2</option>
+                  <option>2.5</option>
+                  <option>3</option>
+                  <option>3.5</option>
+                  <option>4</option>
+                  <option>4.5</option>
+                  <option>5</option>
+                  <option>5+</option>
+                </select>
+              </div>
+              <div class="form-group col-md-2">
+                <label for="price">Price</label>
+                <input type="text" class="form-control" id="inputPrice" placeholder="E.g. $540,000">
+              </div>
+
+            </div>
+            <div class="form-group">
+              <label for="FileUpload">Upload photos</label>
+              <input type="file" class="form-control-file" id="File1">
+              <input type="file" class="form-control-file" id="File2">
+              <input type="file" class="form-control-file" id="File3">
+              <input type="file" class="form-control-file" id="File4">
+              <input type="file" class="form-control-file" id="File5">
+            </div>
+            <div class="form-group">
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox"> I agree to Essos's terms and conditions
+                </label>
+              </div>
+            </div>
+            <a class="btn btn-warning btn-lg" data-toggle="modal" data-target="#CongratulationsModal"> Post</a>            
+          </form>          
+        </div>
+
+
+        <!-- /.container -->
+        </div>
+          <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+          </div>
+        </div>
+        <!-- /.container-fluid-->
+        <!-- /.content-wrapper-->
+        <footer class="py-5 bg-dark">
+          <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; Team 06 SFSU SE Fall 2017</p>
+          </div>
+          <!-- /.container -->
+        </footer>
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fa fa-angle-up"></i>
+    </a>
+    <!-- Logout Modal-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <a class="btn btn-primary" href="../index.html">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Congratulations Modal-->
+    <div class="modal fade" id="CongratulationsModal" tabindex="-1" role="dialog" aria-labelledby="CongratulationsModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Congratulations!</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Your property has been submitted and will soon be listed on Essos.</div>
+          <div class="modal-footer">
+            <a class="btn btn-primary" href="Agent.html">Done</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Page level plugin JavaScript-->
+    <script src="vendor/datatables/jquery.dataTables.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin.min.js"></script>
+    <!-- Custom scripts for this page-->
+    <script src="js/sb-admin-datatables.min.js"></script>
+  </div>
+</body>
+
+</html>
