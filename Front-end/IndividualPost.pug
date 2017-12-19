@@ -1,0 +1,232 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='https://www.w3schools.com/w3css/4/w3.css')
+    title Individual post
+    // Bootstrap core CSS
+    link(href='vendor/bootstrap/css/bootstrap.min.css', rel='stylesheet')
+    // Custom styles for this template
+    link(href='css/halfslider.css', rel='stylesheet')
+    style.
+      #map {
+      height: 280px;
+      width: 90%;
+      }
+  body
+    // Navigation
+    nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.fixed-top
+      .container
+        a.navbar-brand(href='index.html') Essos 
+        button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
+          span.navbar-toggler-icon
+        form.navbar-form.navbar-search(role='search')
+          .input-group
+            input.form-control(type='text', style='width: 500px;')
+            .input-group-btn
+              button.btn.btn-search.btn-primary(type='button', onclick='relocate_home()')
+                span.glyphicon.glyphicon-search
+                span.label-icon Search
+              script.
+                function relocate_home()
+                {
+                location.href = "result.html";
+                }
+        #navbarResponsive.collapse.navbar-collapse
+          ul.navbar-nav.ml-auto
+            li.nav-item
+              a.nav-link(href='about.html') About us
+            li.nav-item
+              a.nav-link(href='', data-toggle='modal', data-target='#AgentLoginModal')  Agent
+            li.nav-item
+              a.nav-link(href='', data-toggle='modal', data-target='#loginModal') Sign In
+            li.nav-item
+              a.nav-link(href='', data-toggle='modal', data-target='#exampleModal') Sign Out
+  // Page Content
+  .container
+    br
+    br
+    br
+    // Portfolio Item Heading
+    h5
+      a.nav-link(href='result.html')  back to search
+    h1.my-4
+      | Property Title
+      small (Location)
+    // Portfolio Item Row
+    .row
+      .w3-content.w3-display-container
+        // link image to database
+        img.mySlides(src='http://placehold.it/750x500', style='width:100%')
+        img.mySlides(src='http://placehold.it/750x450', style='width:100%')
+        img.mySlides(src='http://placehold.it/750x400', style='width:100%')
+        img.mySlides(src='http://placehold.it/750x350', style='width:100%')
+        img.mySlides(src='http://placehold.it/750x300', style='width:100%')
+        button.w3-button.w3-black.w3-display-left(onclick='plusDivs(-1)') ❮
+        button.w3-button.w3-black.w3-display-right(onclick='plusDivs(1)') ❯
+      script.
+        var slideIndex = 1;
+        showDivs(slideIndex);
+        function plusDivs(n) {
+        showDivs(slideIndex += n);
+        }
+        function showDivs(n) {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        if (n > x.length) {
+        slideIndex = 1
+        }
+        if (n < 1) {
+        slideIndex = x.length
+        }
+        for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+        }
+        x[slideIndex - 1].style.display = "block";
+        }
+      .col-md-4
+        // map
+        #map
+        script.
+          function initMap() {
+          var uluru = {lat: -25.363, lng: 131.044};
+          var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: uluru
+          });
+          var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+          });
+          }
+        script(async='', defer='', src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDGf7v2z21y1mcjDcD4ARc7M6jmKdDYdj4&callback=initMap')
+        // end map api
+        h3.my-3 Property Details
+        ul
+          li Lorem Ipsum
+          li Dolor Sit Amet
+          li Consectetur
+          li Adipiscing Elit
+        button.btn.btn-warning(type='button', data-toggle='modal', data-target='#ContactAgentModal') Contact Agent
+      .col-md-10
+        h3.my-3 Property Description
+        p
+          | description here. description here. description here. description here.
+          | description here. description here. description here. description here.
+          | description here. description here. description here. description here.
+          | description here. description here. description here. description here.
+          | description here. description here. description here. description here.
+          | description here. description here. description here. description here.
+          | description here. description here.
+    // /.row
+    // Related Projects Row
+    h3.my-4 Related Properties
+    .row
+      .col-md-3.col-sm-6.mb-4
+        a(href='#')
+          img.img-fluid(src='http://placehold.it/500x300', alt='')
+      .col-md-3.col-sm-6.mb-4
+        a(href='#')
+          img.img-fluid(src='http://placehold.it/500x300', alt='')
+      .col-md-3.col-sm-6.mb-4
+        a(href='#')
+          img.img-fluid(src='http://placehold.it/500x300', alt='')
+      .col-md-3.col-sm-6.mb-4
+        a(href='#')
+          img.img-fluid(src='http://placehold.it/500x300', alt='')
+    // /.row
+  // /.container
+  // Contact agent modal
+  #ContactAgentModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='contactAgentModalLabel', aria-hidden='true')
+    .modal-dialog(role='document')
+      .modal-content
+        .modal-header
+          h5#contactAgentModalLabel.modal-title Input Messages:
+          button.close(type='button', data-dismiss='modal', aria-label='Close')
+            span(aria-hidden='true') ×
+        .modal-body
+          .col.form-group
+            .modal-body
+            input.form-control(type='text', placeholder='Contact name')
+            br
+            input.form-control(type='text', placeholder='Email or phone number')
+            br
+            .form-group
+              textarea#exampleFormControlTextarea1.form-control(placeholder='Type your message here', rows='5')
+        .modal-footer
+          button.btn.btn-secondary(type='button', data-dismiss='modal') Cancel
+          // link to agent's message box
+          button.btn.btn-primary(data-toggle='modal', data-target='#MessageSentModal', type='button', data-dismiss='modal') Send
+  // Message Sent Modal
+  #MessageSentModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='MessageSentModalLabel', aria-hidden='true')
+    .modal-dialog(role='document')
+      .modal-content
+        .modal-header
+          h5#exampleModalLabel.modal-title Message Sent!
+          button.close(type='button', data-dismiss='modal', aria-label='Close')
+            span(aria-hidden='true') ×
+        .modal-body
+          | Congratulations! Your message has been sent to the agent of this property. Expect a reply within next 4-5 business days.
+        .modal-footer
+          button.btn.btn-primary(type='button', data-dismiss='modal') Done
+  // Logout Modal
+  #exampleModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
+    .modal-dialog(role='document')
+      .modal-content
+        .modal-header
+          h5#exampleModalLabel.modal-title Ready to Leave?
+          button.close(type='button', data-dismiss='modal', aria-label='Close')
+            span(aria-hidden='true') ×
+        .modal-body Are you sure you want to log out? Click "Logout" below to end your session.
+        .modal-footer
+          button.btn.btn-secondary(type='button', data-dismiss='modal') Cancel
+          a.btn.btn-primary(href='login.html') Logout
+  // LogIn Modal
+  #loginModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='loginModalLabel', aria-hidden='true')
+    .modal-dialog(role='document')
+      .modal-content
+        .modal-header
+          h5#loginModalLabel.modal-title User Sign In
+          button.close(type='button', data-dismiss='modal', aria-label='Close')
+            span(aria-hidden='true') ×
+        .col-sm-6.form-group
+          .modal-body
+          input.form-control(type='text', placeholder='User Email', style='width: 400px;')
+          br
+          input.form-control(type='text', placeholder='Password', style='width: 400px;')
+        .modal-footer
+          a.btn.btn-warning(href='Registration.html') Register
+          button.btn.btn-secondary(type='button', data-dismiss='modal') Cancel
+          // change to userHome
+          a.btn.btn-primary(href='UserHome.html') Log in
+  // Agent LogIn Modal
+  #AgentLoginModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='AgentLoginModalLabel', aria-hidden='true')
+    .modal-dialog(role='document')
+      .modal-content
+        .modal-header
+          h5#AgentLoginModalLabel.modal-title Agent Sign In
+          button.close(type='button', data-dismiss='modal', aria-label='Close')
+            span(aria-hidden='true') ×
+        .col-sm-6.form-group
+          .modal-body
+          input.form-control(type='text', placeholder='Agent Email', style='width: 400px;')
+          br
+          input.form-control(type='text', placeholder='Password', style='width: 400px;')
+        .modal-footer
+          a.btn.btn-warning(href='AgentRegistration.html') Register
+          button.btn.btn-secondary(type='button', data-dismiss='modal') Cancel
+          // change to Agent Dashboard
+          a.btn.btn-primary(href='Agent/Agent.html') Log in
+  // Footer
+  footer.py-5.bg-dark
+    .container
+      p.m-0.text-center.text-white Copyright © Team 06 SFSU SE Fall 2017 2017
+    // /.container
+  // Bootstrap core JavaScript
+  script(src='vendor/jquery/jquery.min.js')
+  script(src='vendor/bootstrap/js/bootstrap.bundle.min.js')
+

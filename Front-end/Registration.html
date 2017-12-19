@@ -18,19 +18,19 @@
 
   </head>
  
- <body>
+  <body>
 
     <!-- Navigation -->
    <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-      <div class="container">
-        <a class="navbar-brand" href="index.html">Essos</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        
-        <form class="navbar-form navbar-search" role="search">
-          
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Essos</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <form class="navbar-form navbar-search" role="search">
+              
                 <div class="input-group">
         
                     <input type="text" class="form-control" style="width: 500px;">
@@ -40,117 +40,98 @@
                             <span class="glyphicon glyphicon-search"></span>
                             <span class="label-icon">Search</span>
                         </button>
-                        
-                      
-                      <script>
-                        function relocate_home()
-                        {
-                          location.href = "result.html";
-                        } 
-                      </script>
-                        
+                        <script>
+                          function relocate_home()
+                          {
+                            location.href = "result.html";
+                          } 
+                        </script>
                     </div>
                 </div>  
             </form>   
-        
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="about.html">About us</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="" data-toggle="modal" data-target="#AgentLoginModal"> Agent</a>
-            </li>
-     
             
-            <li class="nav-item" >
-              <a class="nav-link" href="" data-toggle="modal" data-target="#loginModal">Sign In</a>
-            </li>
-            
-            
-            <li class="nav-item" >
-          <a class="nav-link" href="" data-toggle="modal" data-target="#exampleModal">Sign Out</a>
-        </li>
-            
-            
-          </ul>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="about.html">About us</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="" data-toggle="modal" data-target="#AgentLoginModal"> Agent</a>
+                </li>
+                <li class="nav-item" >
+                  <a class="nav-link" href="" data-toggle="modal" data-target="#loginModal">Sign In</a>
+                </li>
+                <li class="nav-item" >
+                  <a class="nav-link" href="" data-toggle="modal" data-target="#exampleModal">Sign Out</a>
+                </li>
+              </ul>
+            </div>
         </div>
-      </div>
     </nav>
 
-    
-    
     <header>
     
       <br/><br/>
      
     </header>
-
     
     <div class="container">
-      <br/>
+        <br/>
+        
+        <h1 class="well">User Registration Form</h1>
+        </br></br>
+        <div class="col-lg-12 well">
+            <div class="row">
+              <form>
+                <div class="col-sm-12">
+
+                  <div class="row">
+                    <div class="col-sm-6 form-group">
+                      <input type="text" placeholder="First Name" class="form-control">
+                    </div>
+                    <div class="col-sm-6 form-group">
+                      <input type="text" placeholder="Last Name" class="form-control">
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <input type="text" placeholder="Email address" class="form-control">
+                  </div>
+
+                  <div class="row">
+                    <div class="col-sm-6 form-group">
+                      <input type="text" placeholder="Create password" class="form-control">
+                    </div>		
+                    <div class="col-sm-6 form-group">
+                      <input type="text" placeholder="Confirm password" class="form-control">
+                    </div>	
+                    
+                    <div class="col-sm-6 form-group">
+                      </br>
+                      <input type="checkbox">
+                      <label> I agree to Essos's terms and conditions </label>
+                    </div>
+                  </div>  
       
-      <h1 class="well">User Registration Form</h1>
-    </br></br>
-      <div class="col-lg-12 well">
-        <div class="row">
-          <form>
-            <div class="col-sm-12">
-
-              <div class="row">
-
-
-                <div class="col-sm-6 form-group">
-                  <input type="text" placeholder="First Name" class="form-control">
+                  <div class="row">
+                    <div class="col-sm-6 form-group">            
+                      <button onclick="relocate_user_home()" type="button" class="btn btn-lg btn-warning"> Register</button> 
+                      <script>
+                        function relocate_user_home()
+                          {
+                            location.href = "index.html";
+                          } 
+                      </script>   
+                    </div>
+                  </div>
                 </div>
-                <div class="col-sm-6 form-group">
-                  <input type="text" placeholder="Last Name" class="form-control">
-                </div>
-              </div>
-
-              <div class="form-group">
-                <input type="text" placeholder="Email address" class="form-control">
-              </div>
-
-              <div class="row">
-                <div class="col-sm-6 form-group">
-                  <input type="text" placeholder="Create password" class="form-control">
-                </div>		
-                <div class="col-sm-6 form-group">
-                  <input type="text" placeholder="Confirm password" class="form-control">
-                </div>	
-                
-                <div class="col-sm-6 form-group">
-                  </br>
-                  <input type="checkbox">
-                  <label> I agree to Essos's terms and conditions </label>
-                </div>
-              </div>  
-
-              
-              
-              
-              <div class="row">
-                <div class="col-sm-6 form-group">            
-                  <button onclick="relocate_user_home()" type="button" class="btn btn-lg btn-info"> Register</button> 
-                  <script>
-                    function relocate_user_home()
-                      {
-                        location.href = "index.html";
-                      } 
-                  </script>   
-                </div>
-           
-              </div>
-
+              </form> 
+              </br> 
             </div>
-          </form> 
-          </br> 
         </div>
-      </div>
     </div>
 
-       <!-- Logout Modal-->
+    <!-- Logout Modal-->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -170,10 +151,11 @@
     </div>
     
     
-       <!-- LogIn Modal-->
+    <!-- LogIn Modal-->
     <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
+
           <div class="modal-header">
             <h5 class="modal-title" id="loginModalLabel">User Sign In</h5>
             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
@@ -181,23 +163,23 @@
             </button>
           
           </div>
+
           <div class="col-sm-6 form-group">
-          <div class="modal-body "></div>
-          <input type="text" class="form-control" placeholder="User Email" style="width: 400px;">
-          </br>
-          <input type="text" class="form-control" placeholder="Password" style="width: 400px;">
-          
+            <div class="modal-body ">
+            </div>
+            <input type="text" class="form-control" placeholder="User Email" style="width: 400px;">
+            </br>
+            <input type="text" class="form-control" placeholder="Password" style="width: 400px;">
+            
           </div>
          
           <div class="modal-footer">
-            
             <a class="btn btn-warning " href="Registration.html">Register</a>
-            
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            
             <!-- change to userHome-->
             <a class="btn btn-primary" href="UserHome.html">Log in</a>
           </div>
+
         </div>
       </div>
     </div>
@@ -206,6 +188,7 @@
     <div class="modal fade" id="AgentLoginModal" tabindex="-1" role="dialog" aria-labelledby="AgentLoginModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
+
           <div class="modal-header">
             <h5 class="modal-title" id="AgentLoginModalLabel">Agent Sign In</h5>
             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
@@ -213,23 +196,21 @@
             </button>
           
           </div>
+
           <div class="col-sm-6 form-group">
-          <div class="modal-body "></div>
-          <input type="text" class="form-control" placeholder="Agent Email" style="width: 400px;">
-          </br>
-          <input type="text" class="form-control" placeholder="Password" style="width: 400px;">
-          
+            <div class="modal-body "></div>
+            <input type="text" class="form-control" placeholder="Agent Email" style="width: 400px;">
+            </br>
+            <input type="text" class="form-control" placeholder="Password" style="width: 400px;">
           </div>
          
-          <div class="modal-footer">
-            
+          <div class="modal-footer"> 
             <a class="btn btn-warning " href="AgentRegistration.html">Register</a>
-            
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            
             <!-- change to Agent Dashboard-->
             <a class="btn btn-primary" href="Agent/Agent.html">Log in</a>
           </div>
+
         </div>
       </div>
     </div>

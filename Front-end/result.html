@@ -17,41 +17,35 @@
     <link href="css/3-col-portfolio.css" rel="stylesheet">
 
   </head>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 
   <body>
     <!-- Navigation -->
-<!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
+
         <a class="navbar-brand" href="index.html">Essos</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         
-        <form class="navbar-form navbar-search" role="search">
-          
-                <div class="input-group">
-        
-                    <input type="text" class="form-control" style="width: 500px;">
-                
-                    <div class="input-group-btn">
-                        <button type="button" class="btn btn-search btn-primary" onclick="relocate_home()">
-                            <span class="glyphicon glyphicon-search"></span>
-                            <span class="label-icon">Search</span>
-                        </button>
-                        
-                      
-                      <script>
-                        function relocate_home()
-                        {
-                          location.href = "result.html";
-                        } 
-                      </script>
-                        
-                    </div>
-                </div>  
-            </form>   
+        <form class="navbar-form navbar-search" role="search"> 
+            <div class="input-group">
+              <input type="text" class="form-control" style="width: 500px;">
+              <div class="input-group-btn">
+                <button type="button" class="btn btn-search btn-primary" onclick="relocate_home()">
+                    <span class="glyphicon glyphicon-search"></span>
+                    <span class="label-icon">Search</span>
+                </button>
+                <script>
+                  function relocate_home()
+                  {
+                    location.href = "result.html";
+                  } 
+                </script>
+              </div>
+            </div>  
+        </form>   
         
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
@@ -61,20 +55,15 @@
             <li class="nav-item">
               <a class="nav-link" href="" data-toggle="modal" data-target="#AgentLoginModal"> Agent</a>
             </li>
-     
-            
             <li class="nav-item" >
               <a class="nav-link" href="" data-toggle="modal" data-target="#loginModal">Sign In</a>
             </li>
-            
-            
             <li class="nav-item" >
-          <a class="nav-link" href="" data-toggle="modal" data-target="#exampleModal">Sign Out</a>
-        </li>
-            
-            
+              <a class="nav-link" href="" data-toggle="modal" data-target="#exampleModal">Sign Out</a>
+            </li>     
           </ul>
         </div>
+
       </div>
     </nav>
 
@@ -83,10 +72,10 @@
 
       <!-- Page Heading -->
       <br/><br/>
-      <h1 class="my-4">Showing 6 out of ___ results
-      </h1>
+      <h1 class="my-4">Showing 6 out of ___ results</h1>
 
       <div class="row">
+
         <div class="col-lg-4 col-sm-6 portfolio-item">
           <div class="card h-100">
             <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
@@ -98,6 +87,7 @@
             </div>
           </div>
         </div>
+
         <div class="col-lg-4 col-sm-6 portfolio-item">
           <div class="card h-100">
             <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
@@ -109,6 +99,7 @@
             </div>
           </div>
         </div>
+
         <div class="col-lg-4 col-sm-6 portfolio-item">
           <div class="card h-100">
             <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
@@ -120,6 +111,7 @@
             </div>
           </div>
         </div>
+
         <div class="col-lg-4 col-sm-6 portfolio-item">
           <div class="card h-100">
             <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
@@ -131,6 +123,7 @@
             </div>
           </div>
         </div>
+
         <div class="col-lg-4 col-sm-6 portfolio-item">
           <div class="card h-100">
             <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
@@ -142,6 +135,7 @@
             </div>
           </div>
         </div>
+
         <div class="col-lg-4 col-sm-6 portfolio-item">
           <div class="card h-100">
             <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
@@ -153,33 +147,34 @@
             </div>
           </div>
         </div>
-      </div>
-      <!-- /.row -->
 
-      <!-- Pagination -->
-      <ul class="pagination justify-content-center">
-        <li class="page-item">
-          <a class="page-link" href="#" aria-label="Previous">
-            <span aria-hidden="true">&laquo;</span>
-            <span class="sr-only">Previous</span>
-          </a>
-        </li>
-        <li class="page-item">
-          <a class="page-link" href="#">1</a>
-        </li>
-        <li class="page-item">
-          <a class="page-link" href="#">2</a>
-        </li>
-        <li class="page-item">
-          <a class="page-link" href="#">3</a>
-        </li>
-        <li class="page-item">
-          <a class="page-link" href="#" aria-label="Next">
-            <span aria-hidden="true">&raquo;</span>
-            <span class="sr-only">Next</span>
-          </a>
-        </li>
-      </ul>
+      </div> <!-- row end-->
+    </div>  <!-- container end -->
+
+    <!-- Pagination -->
+    <ul class="pagination justify-content-center">
+      <li class="page-item">
+        <a class="page-link" href="#" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+          <span class="sr-only">Previous</span>
+        </a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="#">1</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="#">2</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="#">3</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="#" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+          <span class="sr-only">Next</span>
+        </a>
+      </li>
+    </ul>
 
          <!-- Logout Modal-->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -191,7 +186,9 @@
               <span aria-hidden="true">×</span>
             </button>
           </div>
+
           <div class="modal-body">Are you sure you want to log out? Click "Logout" below to end your session.</div>
+
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
             <a class="btn btn-primary" href="login.html">Logout</a>
@@ -205,30 +202,28 @@
     <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
+
           <div class="modal-header">
             <h5 class="modal-title" id="loginModalLabel">User Sign In</h5>
             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">×</span>
             </button>
-          
           </div>
+
           <div class="col-sm-6 form-group">
-          <div class="modal-body "></div>
-          <input type="text" class="form-control" placeholder="User Email" style="width: 400px;">
-          </br>
-          <input type="text" class="form-control" placeholder="Password" style="width: 400px;">
-          
+            <div class="modal-body "></div>
+            <input type="text" class="form-control" placeholder="User Email" style="width: 400px;">
+            </br>
+            <input type="text" class="form-control" placeholder="Password" style="width: 400px;">
           </div>
          
           <div class="modal-footer">
-            
             <a class="btn btn-warning " href="Registration.html">Register</a>
-            
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            
             <!-- change to userHome-->
             <a class="btn btn-primary" href="UserHome.html">Log in</a>
           </div>
+
         </div>
       </div>
     </div>
@@ -237,47 +232,42 @@
     <div class="modal fade" id="AgentLoginModal" tabindex="-1" role="dialog" aria-labelledby="AgentLoginModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
+
           <div class="modal-header">
             <h5 class="modal-title" id="AgentLoginModalLabel">Agent Sign In</h5>
             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">×</span>
             </button>
-          
           </div>
+
           <div class="col-sm-6 form-group">
+
           <div class="modal-body "></div>
-          <input type="text" class="form-control" placeholder="Agent Email" style="width: 400px;">
-          </br>
-          <input type="text" class="form-control" placeholder="Password" style="width: 400px;">
-          
+            <input type="text" class="form-control" placeholder="Agent Email" style="width: 400px;">
+            </br>
+            <input type="text" class="form-control" placeholder="Password" style="width: 400px;">
           </div>
-         
+
           <div class="modal-footer">
-            
             <a class="btn btn-warning " href="AgentRegistration.html">Register</a>
-            
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            
             <!-- change to Agent Dashboard-->
             <a class="btn btn-primary" href="Agent/Agent.html">Log in</a>
           </div>
+
         </div>
       </div>
     </div>
-
-
-    </div>
     <!-- /.container -->
 
-    <!-- Footer -->
+      <!-- Footer -->
     <footer class="py-5 bg-dark">
       <div class="container">
         <p class="m-0 text-center text-white">Copyright &copy; Team 06 SFSU SE Fall 2017</p>
       </div>
-      <!-- /.container -->
     </footer>
 
-    <!-- Bootstrap core JavaScript -->
+      <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 

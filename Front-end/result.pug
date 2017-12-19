@@ -1,0 +1,178 @@
+doctype html
+html(lang='en')
+	head
+		meta(charset='utf-8')
+		meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+		meta(name='description', content='')
+		meta(name='author', content='')
+		title Search results
+		// Bootstrap core CSS
+		link(href='vendor/bootstrap/css/bootstrap.min.css', rel='stylesheet')
+		// Custom styles for this template
+		link(href='css/3-col-portfolio.css', rel='stylesheet')
+	link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css')
+	body
+		// Navigation
+		nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.fixed-top
+			.container
+				a.navbar-brand(href='index.html') Essos
+				button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
+					span.navbar-toggler-icon
+				form.navbar-form.navbar-search(role='search')
+					.input-group
+						input.form-control(type='text', style='width: 500px;')
+						.input-group-btn
+							button.btn.btn-search.btn-primary(type='button', onclick='relocate_home()')
+								span.glyphicon.glyphicon-search
+								span.label-icon Search
+							script.
+								function relocate_home()
+								{
+								location.href = "result.html";
+								}
+				#navbarResponsive.collapse.navbar-collapse
+					ul.navbar-nav.ml-auto
+						li.nav-item
+							a.nav-link(href='about.html') About us
+						li.nav-item
+							a.nav-link(href='', data-toggle='modal', data-target='#AgentLoginModal')  Agent
+						li.nav-item
+							a.nav-link(href='', data-toggle='modal', data-target='#loginModal') Sign In
+						li.nav-item
+							a.nav-link(href='', data-toggle='modal', data-target='#exampleModal') Sign Out
+		// Page Content
+		.container
+			// Page Heading
+			br
+			br
+			h1.my-4 Showing 6 out of ___ results
+			.row
+				.col-lg-4.col-sm-6.portfolio-item
+					.card.h-100
+						a(href='#')
+							img.card-img-top(src='http://placehold.it/700x400', alt='')
+						.card-body
+							h4.card-title
+								a(href='IndividualPost.html') Property One
+							p.card-text
+								| Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur eum quasi sapiente nesciunt? Voluptatibus sit, repellat sequi itaque deserunt, dolores in, nesciunt, illum tempora ex quae? Nihil, dolorem!
+				.col-lg-4.col-sm-6.portfolio-item
+					.card.h-100
+						a(href='#')
+							img.card-img-top(src='http://placehold.it/700x400', alt='')
+						.card-body
+							h4.card-title
+								a(href='IndividualPost.html') Property Two
+							p.card-text
+								| Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.
+				.col-lg-4.col-sm-6.portfolio-item
+					.card.h-100
+						a(href='#')
+							img.card-img-top(src='http://placehold.it/700x400', alt='')
+						.card-body
+							h4.card-title
+								a(href='IndividualPost.html') Property Three
+							p.card-text
+								| Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos quisquam, error quod sed cumque, odio distinctio velit nostrum temporibus necessitatibus et facere atque iure perspiciatis mollitia recusandae vero vel quam!
+				.col-lg-4.col-sm-6.portfolio-item
+					.card.h-100
+						a(href='#')
+							img.card-img-top(src='http://placehold.it/700x400', alt='')
+						.card-body
+							h4.card-title
+								a(href='IndividualPost.html') Property Four
+							p.card-text
+								| Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.
+				.col-lg-4.col-sm-6.portfolio-item
+					.card.h-100
+						a(href='#')
+							img.card-img-top(src='http://placehold.it/700x400', alt='')
+						.card-body
+							h4.card-title
+								a(href='IndividualPost.html') Property Five
+							p.card-text
+								| Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.
+				.col-lg-4.col-sm-6.portfolio-item
+					.card.h-100
+						a(href='#')
+							img.card-img-top(src='http://placehold.it/700x400', alt='')
+						.card-body
+							h4.card-title
+								a(href='IndividualPost.html') Property Six
+							p.card-text
+								| Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque earum nostrum suscipit ducimus nihil provident, perferendis rem illo, voluptate atque, sit eius in voluptates, nemo repellat fugiat excepturi! Nemo, esse.
+			// row end
+		// container end
+		// Pagination
+		ul.pagination.justify-content-center
+			li.page-item
+				a.page-link(href='#', aria-label='Previous')
+					span(aria-hidden='true') «
+					span.sr-only Previous
+			li.page-item
+				a.page-link(href='#') 1
+			li.page-item
+				a.page-link(href='#') 2
+			li.page-item
+				a.page-link(href='#') 3
+			li.page-item
+				a.page-link(href='#', aria-label='Next')
+					span(aria-hidden='true') »
+					span.sr-only Next
+		// Logout Modal
+		#exampleModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
+			.modal-dialog(role='document')
+				.modal-content
+					.modal-header
+						h5#exampleModalLabel.modal-title Ready to Leave?
+						button.close(type='button', data-dismiss='modal', aria-label='Close')
+							span(aria-hidden='true') ×
+					.modal-body Are you sure you want to log out? Click "Logout" below to end your session.
+					.modal-footer
+						button.btn.btn-secondary(type='button', data-dismiss='modal') Cancel
+						a.btn.btn-primary(href='login.html') Logout
+		// LogIn Modal
+		#loginModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='loginModalLabel', aria-hidden='true')
+			.modal-dialog(role='document')
+				.modal-content
+					.modal-header
+						h5#loginModalLabel.modal-title User Sign In
+						button.close(type='button', data-dismiss='modal', aria-label='Close')
+							span(aria-hidden='true') ×
+					.col-sm-6.form-group
+						.modal-body
+						input.form-control(type='text', placeholder='User Email', style='width: 400px;')
+						br
+						input.form-control(type='text', placeholder='Password', style='width: 400px;')
+					.modal-footer
+						a.btn.btn-warning(href='Registration.html') Register
+						button.btn.btn-secondary(type='button', data-dismiss='modal') Cancel
+						// change to userHome
+						a.btn.btn-primary(href='UserHome.html') Log in
+		// Agent LogIn Modal
+		#AgentLoginModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='AgentLoginModalLabel', aria-hidden='true')
+			.modal-dialog(role='document')
+				.modal-content
+					.modal-header
+						h5#AgentLoginModalLabel.modal-title Agent Sign In
+						button.close(type='button', data-dismiss='modal', aria-label='Close')
+							span(aria-hidden='true') ×
+					.col-sm-6.form-group
+						.modal-body
+						input.form-control(type='text', placeholder='Agent Email', style='width: 400px;')
+						br
+						input.form-control(type='text', placeholder='Password', style='width: 400px;')
+					.modal-footer
+						a.btn.btn-warning(href='AgentRegistration.html') Register
+						button.btn.btn-secondary(type='button', data-dismiss='modal') Cancel
+						// change to Agent Dashboard
+						a.btn.btn-primary(href='Agent/Agent.html') Log in
+		// /.container
+		// Footer
+		footer.py-5.bg-dark
+			.container
+				p.m-0.text-center.text-white Copyright © Team 06 SFSU SE Fall 2017
+		// Bootstrap core JavaScript
+		script(src='vendor/jquery/jquery.min.js')
+		script(src='vendor/bootstrap/js/bootstrap.bundle.min.js')
+

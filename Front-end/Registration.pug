@@ -1,0 +1,135 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    title Register - User
+    // Bootstrap core CSS
+    link(href='vendor/bootstrap/css/bootstrap.min.css', rel='stylesheet')
+    |     -->
+  body
+    // Navigation
+    // Navigation
+    nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.fixed-top
+      .container
+        a.navbar-brand(href='index.html') Essos
+        button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
+          span.navbar-toggler-icon
+        form.navbar-form.navbar-search(role='search')
+          .input-group
+            input.form-control(type='text', style='width: 500px;')
+            .input-group-btn
+              button.btn.btn-search.btn-primary(type='button', onclick='relocate_home()')
+                span.glyphicon.glyphicon-search
+                span.label-icon Search
+              script.
+                function relocate_home()
+                {
+                location.href = "result.html";
+                }
+        #navbarResponsive.collapse.navbar-collapse
+          ul.navbar-nav.ml-auto
+            li.nav-item
+              a.nav-link(href='about.html') About us
+            li.nav-item
+              a.nav-link(href='', data-toggle='modal', data-target='#AgentLoginModal')  Agent
+            li.nav-item
+              a.nav-link(href='', data-toggle='modal', data-target='#loginModal') Sign In
+            li.nav-item
+              a.nav-link(href='', data-toggle='modal', data-target='#exampleModal') Sign Out
+    header
+      br
+      br
+    .container
+      br
+      h1.well User Registration Form
+      br
+      br
+      .col-lg-12.well
+        .row
+          form
+            .col-sm-12
+              .row
+                .col-sm-6.form-group
+                  input.form-control(type='text', placeholder='First Name')
+                .col-sm-6.form-group
+                  input.form-control(type='text', placeholder='Last Name')
+              .form-group
+                input.form-control(type='text', placeholder='Email address')
+              .row
+                .col-sm-6.form-group
+                  input.form-control(type='text', placeholder='Create password')
+                .col-sm-6.form-group
+                  input.form-control(type='text', placeholder='Confirm password')
+                .col-sm-6.form-group
+                  br
+                  input(type='checkbox')
+                  label  I agree to Essos's terms and conditions 
+              .row
+                .col-sm-6.form-group
+                  button.btn.btn-lg.btn-warning(onclick='relocate_user_home()', type='button')  Register
+                  script.
+                    function relocate_user_home()
+                    {
+                    location.href = "index.html";
+                    }
+          br
+    // Logout Modal
+    #exampleModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
+      .modal-dialog(role='document')
+        .modal-content
+          .modal-header
+            h5#exampleModalLabel.modal-title Ready to Leave?
+            button.close(type='button', data-dismiss='modal', aria-label='Close')
+              span(aria-hidden='true') ×
+          .modal-body Are you sure you want to log out? Click "Logout" below to end your session.
+          .modal-footer
+            button.btn.btn-secondary(type='button', data-dismiss='modal') Cancel
+            a.btn.btn-primary(href='login.html') Logout
+    // LogIn Modal
+    #loginModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='loginModalLabel', aria-hidden='true')
+      .modal-dialog(role='document')
+        .modal-content
+          .modal-header
+            h5#loginModalLabel.modal-title User Sign In
+            button.close(type='button', data-dismiss='modal', aria-label='Close')
+              span(aria-hidden='true') ×
+          .col-sm-6.form-group
+            .modal-body
+            input.form-control(type='text', placeholder='User Email', style='width: 400px;')
+            br
+            input.form-control(type='text', placeholder='Password', style='width: 400px;')
+          .modal-footer
+            a.btn.btn-warning(href='Registration.html') Register
+            button.btn.btn-secondary(type='button', data-dismiss='modal') Cancel
+            // change to userHome
+            a.btn.btn-primary(href='UserHome.html') Log in
+    // Agent LogIn Modal
+    #AgentLoginModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='AgentLoginModalLabel', aria-hidden='true')
+      .modal-dialog(role='document')
+        .modal-content
+          .modal-header
+            h5#AgentLoginModalLabel.modal-title Agent Sign In
+            button.close(type='button', data-dismiss='modal', aria-label='Close')
+              span(aria-hidden='true') ×
+          .col-sm-6.form-group
+            .modal-body
+            input.form-control(type='text', placeholder='Agent Email', style='width: 400px;')
+            br
+            input.form-control(type='text', placeholder='Password', style='width: 400px;')
+          .modal-footer
+            a.btn.btn-warning(href='AgentRegistration.html') Register
+            button.btn.btn-secondary(type='button', data-dismiss='modal') Cancel
+            // change to Agent Dashboard
+            a.btn.btn-primary(href='Agent/Agent.html') Log in
+    // Footer
+    footer.py-5.bg-dark
+      .container
+        p.m-0.text-center.text-white Copyright © Team 06 SFSU SE Fall 2017
+      // /.container
+    // Bootstrap core JavaScript
+    script(src='vendor/jquery/jquery.min.js')
+    script(src='vendor/bootstrap/js/bootstrap.bundle.min.js')
+

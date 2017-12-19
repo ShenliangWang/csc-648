@@ -25,9 +25,6 @@
         width: 90%;
       }
     </style>
-
-
-
   </head>
 
 
@@ -91,6 +88,7 @@
       </div>
 
     </nav>
+  </body>
 
     <!-- Page Content -->
     <div class="container">
@@ -177,8 +175,6 @@
             <li>Adipiscing Elit</li>
           </ul>
 
-
-          <button type="button" data-toggle="modal"  data-target="#BookmarkModal" class="btn btn-warning">Bookmark</button>
           <button type="button" data-toggle="modal"  data-target="#ContactAgentModal" class="btn btn-warning">Contact Agent</button>
           
         </div>
@@ -203,29 +199,29 @@
 
       <div class="row">
 
-        <div class="col-md-3 col-sm-6 mb-4">
-          <a href="#">
-            <img class="img-fluid" src="http://placehold.it/500x300" alt="">
-          </a>
-        </div>
+          <div class="col-md-3 col-sm-6 mb-4">
+            <a href="#">
+              <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+            </a>
+          </div>
 
-        <div class="col-md-3 col-sm-6 mb-4">
-          <a href="#">
-            <img class="img-fluid" src="http://placehold.it/500x300" alt="">
-          </a>
-        </div>
+          <div class="col-md-3 col-sm-6 mb-4">
+            <a href="#">
+              <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+            </a>
+          </div>
 
-        <div class="col-md-3 col-sm-6 mb-4">
-          <a href="#">
-            <img class="img-fluid" src="http://placehold.it/500x300" alt="">
-          </a>
-        </div>
+          <div class="col-md-3 col-sm-6 mb-4">
+            <a href="#">
+              <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+            </a>
+          </div>
 
-        <div class="col-md-3 col-sm-6 mb-4">
-          <a href="#">
-            <img class="img-fluid" src="http://placehold.it/500x300" alt="">
-          </a>
-        </div>
+          <div class="col-md-3 col-sm-6 mb-4">
+            <a href="#">
+              <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+            </a>
+          </div>
 
       </div>
       <!-- /.row -->
@@ -239,14 +235,16 @@
     <div class="modal fade" id="ContactAgentModal" tabindex="-1" role="dialog" aria-labelledby="contactAgentModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
+
           <div class="modal-header">
             <h5 class="modal-title" id="contactAgentModalLabel">Input Messages:</h5>
             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">×</span>
             </button>
           </div>
-          <div class="modal-body">
 
+
+          <div class="modal-body">
             <div class="col form-group">
               <div class="modal-body "></div>
               <input type="text" class="form-control" placeholder="Contact name">
@@ -259,11 +257,14 @@
               </div>
             </div>
           </div>
+
+
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
             <!-- link to agent's message box -->
             <button data-toggle="modal"  data-target="#MessageSentModal" class="btn btn-primary" type="button" data-dismiss="modal">Send</button>
           </div>
+
         </div>
       </div>
     </div>
@@ -286,26 +287,7 @@
       </div>
     </div>
 
-     <!-- Bookmark Modal-->
-    <div class="modal fade" id="BookmarkModal" tabindex="-1" role="dialog" aria-labelledby="BookmarkModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Bookmark successful</h5>
-            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">×</span>
-            </button>
-          </div>
-          <div class="modal-body">Congratulations! This property has been added to your bookmarks.</div>
-          <div class="modal-footer">
-            <button class="btn btn-primary" type="button" data-dismiss="modal">Done</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-     <!-- Logout Modal-->
+    <!-- Logout Modal-->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -357,7 +339,7 @@
       </div>
     </div>
     
-         <!-- Agent LogIn Modal-->
+    <!-- Agent LogIn Modal-->
     <div class="modal fade" id="AgentLoginModal" tabindex="-1" role="dialog" aria-labelledby="AgentLoginModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">

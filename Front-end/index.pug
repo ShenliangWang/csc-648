@@ -1,0 +1,201 @@
+doctype html
+html(lang='en')
+	head
+		meta(charset='utf-8')
+		meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+		meta(name='description', content='')
+		meta(name='author', content='')
+		title Welcome to Essos
+		// Bootstrap core CSS
+		link(href='vendor/bootstrap/css/bootstrap.min.css', rel='stylesheet')
+		// Custom styles for this template
+		link(href='css/half-slider.css', rel='stylesheet')
+	body
+		// Navigation
+		nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.fixed-top
+			.container
+				a.navbar-brand(href='index.html') Essos
+				button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
+					span.navbar-toggler-icon
+				form.navbar-form.navbar-search(role='search')
+					.input-group
+						input.form-control(type='text', style='width: 500px;')
+						.input-group-btn
+							button.btn.btn-search.btn-primary(type='button', onclick='relocate_home()')
+								span.glyphicon.glyphicon-search
+								span.label-icon Search
+							script.
+								function relocate_home()
+								{
+								location.href = "result.html";
+								}
+				#navbarResponsive.collapse.navbar-collapse
+					ul.navbar-nav.ml-auto
+						li.nav-item
+							a.nav-link(href='about.html') About us
+						li.nav-item
+							a.nav-link(href='', data-toggle='modal', data-target='#AgentLoginModal')  Agent
+						li.nav-item
+							a.nav-link(href='', data-toggle='modal', data-target='#loginModal') Sign In
+						li.nav-item
+							a.nav-link(href='', data-toggle='modal', data-target='#exampleModal') Sign Out
+		header
+			#carouselExampleIndicators.carousel.slide(data-ride='carousel')
+				ol.carousel-indicators
+					li.active(data-target='#carouselExampleIndicators', data-slide-to='0')
+					li(data-target='#carouselExampleIndicators', data-slide-to='1')
+					li(data-target='#carouselExampleIndicators', data-slide-to='2')
+				.carousel-inner(role='listbox')
+					// Slide One - Set the background image for this slide in the line below
+					.carousel-item.active(style="background-image: url('http://placehold.it/1900x1080')")
+						.carousel-caption.d-none.d-md-block
+							h3 First Slide
+							p This is a description for the first slide.
+					// Slide Two - Set the background image for this slide in the line below
+					.carousel-item(style="background-image: url('http://placehold.it/1900x1080')")
+						.carousel-caption.d-none.d-md-block
+							h3 Second Slide
+							p This is a description for the second slide.
+					// Slide Three - Set the background image for this slide in the line below
+					.carousel-item(style="background-image: url('http://placehold.it/1900x1080')")
+						.carousel-caption.d-none.d-md-block
+							h3 Third Slide
+							p This is a description for the third slide.
+				a.carousel-control-prev(href='#carouselExampleIndicators', role='button', data-slide='prev')
+					span.carousel-control-prev-icon(aria-hidden='true')
+					span.sr-only Previous
+				a.carousel-control-next(href='#carouselExampleIndicators', role='button', data-slide='next')
+					span.carousel-control-next-icon(aria-hidden='true')
+					span.sr-only Next
+		// Logout Modal
+		#exampleModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
+			.modal-dialog(role='document')
+				.modal-content
+					.modal-header
+						h5#exampleModalLabel.modal-title Ready to Leave?
+						button.close(type='button', data-dismiss='modal', aria-label='Close')
+							span(aria-hidden='true') ×
+					.modal-body Are you sure you want to log out? Click "Logout" below to end your session.
+					.modal-footer
+						button.btn.btn-secondary(type='button', data-dismiss='modal') Cancel
+						a.btn.btn-primary(href='login.html') Logout
+		// LogIn Modal
+		#loginModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='loginModalLabel', aria-hidden='true')
+			.modal-dialog(role='document')
+				.modal-content
+					.modal-header
+						h5#loginModalLabel.modal-title User Sign In
+						button.close(type='button', data-dismiss='modal', aria-label='Close')
+							span(aria-hidden='true') ×
+					.col-sm-6.form-group
+						.modal-body
+						input.form-control(type='text', placeholder='User Email', style='width: 400px;')
+						br
+						input.form-control(type='text', placeholder='Password', style='width: 400px;')
+					.modal-footer
+						a.btn.btn-warning(href='Registration.html') Register
+						button.btn.btn-secondary(type='button', data-dismiss='modal') Cancel
+						// change to userHome
+						a.btn.btn-primary(href='UserHome.html') Log in
+		// Agent LogIn Modal
+		#AgentLoginModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='AgentLoginModalLabel', aria-hidden='true')
+			.modal-dialog(role='document')
+				.modal-content
+					.modal-header
+						h5#AgentLoginModalLabel.modal-title Agent Sign In
+						button.close(type='button', data-dismiss='modal', aria-label='Close')
+							span(aria-hidden='true') ×
+					.col-sm-6.form-group
+						.modal-body
+						input.form-control(type='text', placeholder='Agent Email', style='width: 400px;')
+						br
+						input.form-control(type='text', placeholder='Password', style='width: 400px;')
+					.modal-footer
+						a.btn.btn-warning(href='AgentRegistration.html') Register
+						button.btn.btn-secondary(type='button', data-dismiss='modal') Cancel
+						// change to Agent Dashboard
+						a.btn.btn-primary(href='Agent/Agent.html') Log in
+		// Page Content
+		section.py-2
+			.container
+						h1 Featured properties
+						//
+							<p>The background images for the slider are set directly in the HTML using inline CSS. The rest of the styles for this template are contained within the
+							<code>half-slider.css</code>file.</p>
+				.row
+					.col-lg-4.col-md-6.mb-4
+						.card.h-100
+							a(href='IndividualPost.html')
+								img.card-img-top(src='http://placehold.it/700x400', alt='')
+							.card-body
+								h4.card-title
+									a(href='IndividualPost.html') Item One
+								h5 $24.99
+								p.card-text
+									| Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!
+							.card-footer
+					.col-lg-4.col-md-6.mb-4
+						.card.h-100
+							a(href='IndividualPost.html')
+								img.card-img-top(src='http://placehold.it/700x400', alt='')
+							.card-body
+								h4.card-title
+									a(href='IndividualPost.html') Item Two
+								h5 $24.99
+								p.card-text
+									| Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor sit amet.
+							.card-footer
+					.col-lg-4.col-md-6.mb-4
+						.card.h-100
+							a(href='IndividualPost.html')
+								img.card-img-top(src='http://placehold.it/700x400', alt='')
+							.card-body
+								h4.card-title
+									a(href='IndividualPost.html') Item Three
+								h5 $24.99
+								p.card-text
+									| Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!
+							.card-footer
+					.col-lg-4.col-md-6.mb-4
+						.card.h-100
+							a(href='IndividualPost.html')
+								img.card-img-top(src='http://placehold.it/700x400', alt='')
+							.card-body
+								h4.card-title
+									a(href='IndividualPost.html') Item Four
+								h5 $24.99
+								p.card-text
+									| Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!
+							.card-footer
+					.col-lg-4.col-md-6.mb-4
+						.card.h-100
+							a(href='IndividualPost.html')
+								img.card-img-top(src='http://placehold.it/700x400', alt='')
+							.card-body
+								h4.card-title
+									a(href='IndividualPost.html') Item Five
+								h5 $24.99
+								p.card-text
+									| Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!
+							.card-footer
+					.col-lg-4.col-md-6.mb-4
+						.card.h-100
+							a(href='IndividualPost.html')
+								img.card-img-top(src='http://placehold.it/700x400', alt='')
+							.card-body
+								h4.card-title
+									a(href='IndividualPost.html') Item Six
+								h5 $24.99
+								p.card-text
+									| Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!
+							.card-footer
+			// /.row
+			 // Footer
+				footer.py-5.bg-dark
+			.container
+				p.m-0.text-center.text-white Copyright © Team 06 SFSU SE Fall 2017
+			// /.container
+		// Bootstrap core JavaScript
+		script(src='vendor/jquery/jquery.min.js')
+		script(src='vendor/bootstrap/js/bootstrap.bundle.min.js')
+
