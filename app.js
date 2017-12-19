@@ -32,6 +32,9 @@ app.post('/upload', (req, res) => {
       //res.render...
     }
     else {
+      if(req.file == undefined) {
+        //... no file selected
+      }
       console.log(req.file);
     }
   });
