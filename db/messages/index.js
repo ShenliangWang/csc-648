@@ -117,8 +117,5 @@ module.exports = {
 	create_msg,
 	delete_msg,
 	get_Usermsgs,
-	get_Umsgs_by_date,
-	get_Agentmsgs,
-	get_Amsgs_by_date,
-	send_msg
+	get_Agentmsgs
 };
