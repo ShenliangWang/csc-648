@@ -26,31 +26,31 @@ html
     .disclaimer
       this &#9888; This site is for demonstration purposes only. &#9888;
 
-  // Navigation
-  nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.fixed-top
-    .container
-      a.navbar-brand(href='./') 
-        h1 Essos
-      button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
-        span.navbar-toggler-icon
-      form.navbar-form.navbar-search(method='get', action='results')
-        .input-group
-          input.form-control(type='text', style='width: 500px;', name='search', value=search_val)
-          .input-group-btn
-            button.btn.btn-search.btn-primary(type='submit')
-              span.glyphicon.glyphicon-search
-              span.label-icon Search
+    // Navigation
+    nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.sticky-top
+      .container
+        a.navbar-brand(href='./') 
+          h1 Essos
+        button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
+          span.navbar-toggler-icon
+        form.navbar-form.navbar-search(method='get', action='results')
+          .input-group
+            input.form-control(type='text', style='width: 500px;', name='search', value=search_val)
+            .input-group-btn
+              button.btn.btn-search.btn-primary(type='submit')
+                span.glyphicon.glyphicon-search
+                span.label-icon Search
 
-      #navbarResponsive.collapse.navbar-collapse
-        ul.navbar-nav.ml-auto
-          li.nav-item
-            a.nav-link(href='about') About us
-          li.nav-item
-            a.nav-link(href='', data-toggle='modal', data-target='#AgentLoginModal')  Agent
-          li.nav-item
-            a.nav-link(href='', data-toggle='modal', data-target='#loginModal') Sign In
-          li.nav-item
-            a.nav-link(href='', data-toggle='modal', data-target='#exampleModal') Sign Out
+        #navbarResponsive.collapse.navbar-collapse
+          ul.navbar-nav.ml-auto
+            li.nav-item
+              a.nav-link(href='about') About us
+            li.nav-item
+              a.nav-link(href='', data-toggle='modal', data-target='#AgentLoginModal')  Agent
+            li.nav-item
+              a.nav-link(href='', data-toggle='modal', data-target='#loginModal') Sign In
+            li.nav-item
+              a.nav-link(href='', data-toggle='modal', data-target='#exampleModal') Sign Out
 
   // Logout Modal
   #exampleModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
