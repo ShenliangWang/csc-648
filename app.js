@@ -48,6 +48,7 @@ var dbTest = require('./routes/dbTest');
 var register = require('./routes/register');
 var login = require('./routes/login');
 var listing = require('./routes/listing');
+var about = require('./routes/about');
 var app = express();
 
 // view engine setup
@@ -84,12 +85,14 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+//routes
 app.use('/', index);
 app.use('/users', users);
 app.use('/dbTest', dbTest);
 app.use('/register', register);
 app.use('/login', login);
 app.use('/listing', listing); //testing
+app.use('/about', about);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
