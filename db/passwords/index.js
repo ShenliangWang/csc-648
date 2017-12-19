@@ -8,38 +8,35 @@ var del = "DELETE FROM " + table + " ";
 
 /* Gets password associated with a particular email from passwords table in db 
    Note: Testing req'd
-   @author: Felix															 */
+   @author: Felix
+//upadated   */
 function get_password(email, callback) {
-	db.query(select + 
-		"WHERE email=" + mysql.escape(email), 
+	db.query(select password FROM password + 
+		"WHERE email= ?",[email], 
 	       function(err, result) {
 		       if(err) {
 			       res.status(500).json({"status_code": 500,"status_message": "internal server error"});
 			       return callback(err);
 		       } else {
 			       return callback(result);
-		       }
-	       }
-       )
-}
+		       }})}
 
 /* Sets password in table passwords associated with a particular email in db
    Note: Testing req'd
-   @author: Felix															 */
+   @author: Felix		
+   */
+   //updated
+   
 function set_password(email, password, callback) {
 	db.query(update +
-			"SET password=" + mysql.escape(password) + 
-		   " WHERE email=" + email,
+			"SET password=? WHERE email=?",[password, email],
 		   function(err, result) {
 			if(err) {
 				res.status(500).json({"status_code": 500,"status_message": "internal server error"});
 				return callback(err);
 			} else {
 				return callback(result);
-			  }
-		   }
-	)
-}
+			  }})}
 
 
 
