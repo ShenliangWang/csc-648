@@ -46,25 +46,13 @@
 
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="Agent.html">
-            <i class="fa fa-fw fa-dashboard"></i>
-            <span class="nav-link-text">Agent Dashboard</span>
-          </a>
-        </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-          <a class="nav-link" href="Messages.html">
+          <a class="nav-link" href="Agent.html">
             <i class="fa fa-fw fa-envelope"></i>
             <span class="nav-link-text">Messages</span>
           </a>
-        </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Messages">
-          <a class="nav-link" href="Bookmarks.html">
-            <i class="fa fa-fw fa-bookmark"></i>
-            <span class="nav-link-text">Bookmarks</span>
-          </a>
-        </li>
-         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
+        </li> 
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
           <a class="nav-link" href="MyPosts.html">
             <i class="fa fa-fw fa-list"></i>
             <span class="nav-link-text">My Posts</span>
@@ -81,13 +69,12 @@
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">
           <a class="nav-link text-center" id="sidenavToggler">
-            <i class="fa fa-fw fa-angle-left"></i>
+            <i class="fa fa-fw fa-angle-left fa-2x"></i>
           </a>
         </li>
       </ul>
 
       <ul class="navbar-nav ml-auto">
-
         <li class="nav-item">
               <a class="nav-link" href="../about.html">About us</a>
         </li>
@@ -100,12 +87,14 @@
       </ul>
     </div>
   </nav>
+  <!-- .Navigation -->
+
   <div class="content-wrapper">
     <div class="container-fluid">
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="Agent.html">Dashboard</a>
+          <a href="Agent.html">Agent Dashboard</a>
         </li>
         <li class="breadcrumb-item active">New Post</li>
       </ol>
@@ -183,7 +172,8 @@
                 <input type="text" class="form-control" id="inputPrice" placeholder="E.g. $540,000">
               </div>
 
-            </div>
+            </div> <!-- .row -->
+
             <div class="form-group">
               <label for="FileUpload">Upload photos</label>
               <input type="file" class="form-control-file" id="File1">
@@ -200,11 +190,9 @@
               </div>
             </div>
             <a class="btn btn-warning btn-lg" data-toggle="modal" data-target="#CongratulationsModal"> Post</a>            
-          </form>          
-        </div>
+          </form>     <!-- .form -->       
+        </div> <!-- .container -->
 
-
-        <!-- /.container -->
         </div>
           <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
           </div>
@@ -217,10 +205,12 @@
           </div>
           <!-- /.container -->
         </footer>
+      </div> <!-- .card mb3 -->
+    </div> <!-- .container-fluid -->
 
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
-      <i class="fa fa-angle-up"></i>
+      <i class="fa fa-angle-up fa-2x"></i>
     </a>
     <!-- Logout Modal-->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -271,7 +261,7 @@
     <script src="js/sb-admin.min.js"></script>
     <!-- Custom scripts for this page-->
     <script src="js/sb-admin-datatables.min.js"></script>
-  </div>
+  </div> <!-- .content-wrapper -->
 </body>
 
 </html>

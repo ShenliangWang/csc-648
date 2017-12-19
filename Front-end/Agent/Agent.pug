@@ -1,0 +1,223 @@
+doctype html
+html(lang='en')
+	head
+		meta(charset='utf-8')
+		meta(http-equiv='X-UA-Compatible', content='IE=edge')
+		meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+		meta(name='description', content='')
+		meta(name='author', content='')
+		title Messages - Dashboard
+		// Bootstrap core CSS
+		link(href='vendor/bootstrap/css/bootstrap.min.css', rel='stylesheet')
+		// Custom fonts for this template
+		link(href='vendor/font-awesome/css/font-awesome.min.css', rel='stylesheet', type='text/css')
+		// Page level plugin CSS
+		link(href='vendor/datatables/dataTables.bootstrap4.css', rel='stylesheet')
+		// Custom styles for this template
+		link(href='css/sb-admin.css', rel='stylesheet')
+	body#page-top.fixed-nav.sticky-footer.bg-dark
+		// Navigation
+		nav#mainNav.navbar.navbar-expand-lg.navbar-dark.bg-dark.fixed-top
+			a.navbar-brand(href='../index.html') Essos
+			button.navbar-toggler.navbar-toggler-right(type='button', data-toggle='collapse', data-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
+				span.navbar-toggler-icon
+			// Search
+			form.navbar-form.navbar-search(role='search')
+				.input-group
+					input.form-control(type='text', style='width: 500px;')
+					.input-group-btn
+						button.btn.btn-search.btn-primary(type='button', onclick='relocate_home()')
+							span.glyphicon.glyphicon-search
+							span.label-icon Search
+						script.
+							function relocate_home()
+							{
+							location.href = "result.html";
+							}
+			// .Search
+			#navbarResponsive.collapse.navbar-collapse
+				// Sidebar items
+				ul#exampleAccordion.navbar-nav.navbar-sidenav
+					li.nav-item.active(data-toggle='tooltip', data-placement='right', title='Tables')
+						a.nav-link(href='Agent.html')
+							i.fa.fa-fw.fa-envelope
+							span.nav-link-text Messages
+					li.nav-item(data-toggle='tooltip', data-placement='right', title='Tables')
+						a.nav-link(href='MyPosts.html')
+							i.fa.fa-fw.fa-list
+							span.nav-link-text My Posts
+					li.nav-item(data-toggle='tooltip', data-placement='right', title='Tables')
+						a.nav-link(href='NewPost.html')
+							i.fa.fa-fw.fa-plus
+							span.nav-link-text New Post
+				// Toggle button to hide sidebar
+				ul.navbar-nav.sidenav-toggler
+					li.nav-item
+						a#sidenavToggler.nav-link.text-center
+							i.fa.fa-fw.fa-angle-left.fa-2x
+				// Navbar items
+				ul.navbar-nav.ml-auto
+					li.nav-item
+						a.nav-link(href='../about.html') About us
+					li.nav-item
+						a.nav-link.active(href='#') Agent
+					li.nav-item
+						a.nav-link(data-toggle='modal', data-target='#exampleModal') Sign Out
+		// .Navigation
+		.content-wrapper
+			.container-fluid
+				// Breadcrumbs
+				ol.breadcrumb
+					li.breadcrumb-item
+						a(href='Agent.html') Agent Dashboard
+					li.breadcrumb-item.active Messages
+				// Messages DataTables Card
+				.card.mb-3
+					.card-body
+						.table-responsive
+							table#dataTable.table.table-bordered(width='100%', cellspacing='0')
+								thead
+									// Messages table headings
+									tr
+										th Name
+										th Contact
+										th Message
+										th Property
+										th City
+										th State
+										th Date
+								tbody
+									tr
+										td Tom Hardy
+										td 415-123-45678
+										td
+											| Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed maximus ultrices turpis ac gravida. Vivamus at lectus ut magna eleifend sodales. Nullam eu hendrerit ex, et maximus nulla. In vel suscipit dolor. Nam venenatis tortor nunc, pulvinar suscipit lacus tincidunt a. Vestibulum vitae velit lacus. Suspendisse pharetra sem nisi, vitae commodo odio aliquet porttitor.
+										td Apt. in Sunset
+										td San Francisco
+										td CA
+										td 2012/08/06
+									tr
+										td Tom Hardy
+										td 415-123-45678
+										td
+											| Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed maximus ultrices turpis ac gravida. Vivamus at lectus ut magna eleifend sodales. Nullam eu hendrerit ex, et maximus nulla. In vel suscipit dolor. Nam venenatis tortor nunc, pulvinar suscipit lacus tincidunt a. Vestibulum vitae velit lacus. Suspendisse pharetra sem nisi, vitae commodo odio aliquet porttitor.
+										td Beachside paradise
+										td San Diego
+										td CA
+										td 2010/10/14
+									tr
+										td Tom Hardy
+										td 415-123-45678
+										td
+											| Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed maximus ultrices turpis ac gravida. Vivamus at lectus ut magna eleifend sodales. Nullam eu hendrerit ex, et maximus nulla. In vel suscipit dolor. Nam venenatis tortor nunc, pulvinar suscipit lacus tincidunt a. Vestibulum vitae velit lacus. Suspendisse pharetra sem nisi, vitae commodo odio aliquet porttitor.
+										td 3 bd house near downtown
+										td Brooklyn
+										td NY
+										td 2009/09/15
+									tr
+										td Tom Hardy
+										td 415-123-45678
+										td
+											| Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed maximus ultrices turpis ac gravida. Vivamus at lectus ut magna eleifend sodales. Nullam eu hendrerit ex, et maximus nulla. In vel suscipit dolor. Nam venenatis tortor nunc, pulvinar suscipit lacus tincidunt a. Vestibulum vitae velit lacus. Suspendisse pharetra sem nisi, vitae commodo odio aliquet porttitor.
+										td House in Emmeryville
+										td Oakland
+										td CA
+										td 2008/12/13
+									tr
+										td Tom Hardy
+										td 415-123-45678
+										td
+											| Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed maximus ultrices turpis ac gravida. Vivamus at lectus ut magna eleifend sodales. Nullam eu hendrerit ex, et maximus nulla. In vel suscipit dolor. Nam venenatis tortor nunc, pulvinar suscipit lacus tincidunt a. Vestibulum vitae velit lacus. Suspendisse pharetra sem nisi, vitae commodo odio aliquet porttitor.
+										td Studio in Downtown
+										td Seattle
+										td WA
+										td 2008/12/19
+									tr
+										td Tom Hardy
+										td 415-123-45678
+										td
+											| Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed maximus ultrices turpis ac gravida. Vivamus at lectus ut magna eleifend sodales. Nullam eu hendrerit ex, et maximus nulla. In vel suscipit dolor. Nam venenatis tortor nunc, pulvinar suscipit lacus tincidunt a. Vestibulum vitae velit lacus. Suspendisse pharetra sem nisi, vitae commodo odio aliquet porttitor.
+										td 2bd 2bath in Silicon Valley
+										td San Jose
+										td CA
+										td 2013/03/03
+									tr
+										td Tom Hardy
+										td 415-123-45678
+										td
+											| Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed maximus ultrices turpis ac gravida. Vivamus at lectus ut magna eleifend sodales. Nullam eu hendrerit ex, et maximus nulla. In vel suscipit dolor. Nam venenatis tortor nunc, pulvinar suscipit lacus tincidunt a. Vestibulum vitae velit lacus. Suspendisse pharetra sem nisi, vitae commodo odio aliquet porttitor.
+										td Studio in SOMA
+										td San Francisco
+										td CA
+										td 2008/10/16
+									tr
+										td Tom Hardy
+										td 415-123-45678
+										td
+											| Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed maximus ultrices turpis ac gravida. Vivamus at lectus ut magna eleifend sodales. Nullam eu hendrerit ex, et maximus nulla. In vel suscipit dolor. Nam venenatis tortor nunc, pulvinar suscipit lacus tincidunt a. Vestibulum vitae velit lacus. Suspendisse pharetra sem nisi, vitae commodo odio aliquet porttitor.
+										td 1bed bachelor pad
+										td Chicago
+										td IL
+										td 2012/12/18
+									tr
+										td Tom Hardy
+										td 415-123-45678
+										td
+											| Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed maximus ultrices turpis ac gravida. Vivamus at lectus ut magna eleifend sodales. Nullam eu hendrerit ex, et maximus nulla. In vel suscipit dolor. Nam venenatis tortor nunc, pulvinar suscipit lacus tincidunt a. Vestibulum vitae velit lacus. Suspendisse pharetra sem nisi, vitae commodo odio aliquet porttitor.
+										td Suburban dream house
+										td London
+										td UK
+										td 2010/03/17
+									tr
+										td Tom Hardy
+										td 415-123-45678
+										td
+											| Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed maximus ultrices turpis ac gravida. Vivamus at lectus ut magna eleifend sodales. Nullam eu hendrerit ex, et maximus nulla. In vel suscipit dolor. Nam venenatis tortor nunc, pulvinar suscipit lacus tincidunt a. Vestibulum vitae velit lacus. Suspendisse pharetra sem nisi, vitae commodo odio aliquet porttitor.
+										td Penthouse in downtown
+										td London
+										td UK
+										td 2012/11/27
+									tr
+										td Tom Hardy
+										td 415-123-45678
+										td
+											| Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed maximus ultrices turpis ac gravida. Vivamus at lectus ut magna eleifend sodales. Nullam eu hendrerit ex, et maximus nulla. In vel suscipit dolor. Nam venenatis tortor nunc, pulvinar suscipit lacus tincidunt a. Vestibulum vitae velit lacus. Suspendisse pharetra sem nisi, vitae commodo odio aliquet porttitor.
+										td Dream home in the city
+										td New York
+										td NY
+										td 2010/06/09
+					.card-footer.small.text-muted Updated yesterday at 11:59 PM
+			// /.container-fluid
+			// /.content-wrapper
+			footer.py-5.bg-dark
+				.container
+					p.m-0.text-center.text-white Copyright © Team 06 SFSU SE Fall 2017
+				// /.container
+			// Scroll to Top Button
+			a.scroll-to-top.rounded(href='#page-top')
+				i.fa.fa-angle-up.fa-2x
+			// Logout Modal
+			#exampleModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
+				.modal-dialog(role='document')
+					.modal-content
+						.modal-header
+							h5#exampleModalLabel.modal-title Ready to Leave?
+							button.close(type='button', data-dismiss='modal', aria-label='Close')
+								span(aria-hidden='true') ×
+						.modal-body Select "Logout" below if you are ready to end your current session.
+						.modal-footer
+							button.btn.btn-secondary(type='button', data-dismiss='modal') Cancel
+							a.btn.btn-primary(href='../index.html') Logout
+			// Bootstrap core JavaScript
+			script(src='vendor/jquery/jquery.min.js')
+			script(src='vendor/bootstrap/js/bootstrap.bundle.min.js')
+			// Core plugin JavaScript
+			script(src='vendor/jquery-easing/jquery.easing.min.js')
+			// Page level plugin JavaScript
+			script(src='vendor/datatables/jquery.dataTables.js')
+			script(src='vendor/datatables/dataTables.bootstrap4.js')
+			// Custom scripts for all pages
+			script(src='js/sb-admin.min.js')
+			// Custom scripts for this page
+			script(src='js/sb-admin-datatables.min.js')
+
