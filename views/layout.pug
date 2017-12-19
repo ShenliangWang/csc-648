@@ -33,14 +33,14 @@ html
         h1 Essos
       button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
         span.navbar-toggler-icon
-      form.navbar-form.navbar-search(method='get', action='test')
+      form.navbar-form.navbar-search(method='get', action='results')
         .input-group
-          input.form-control(type='text', style='width: 500px;', name='search')
+          input.form-control(type='text', style='width: 500px;', name='search', value=search_val)
           .input-group-btn
             button.btn.btn-search.btn-primary(type='submit')
               span.glyphicon.glyphicon-search
               span.label-icon Search
-              
+
       #navbarResponsive.collapse.navbar-collapse
         ul.navbar-nav.ml-auto
           li.nav-item
