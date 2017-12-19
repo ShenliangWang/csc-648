@@ -41,7 +41,7 @@ function delete_listing(listing_id, callback) {
    Note: Testing req'd
    @author: Felix   + Julian*/
    
-function get_agent(listing_id, callback) {
+function get_listing(listing_id, callback) {
     db.query("SELECT * FROM listings WHERE listing_id = ?",[listing_id], 
     function(err,rows,fields) {
         if(err) {
@@ -241,7 +241,8 @@ function search(query, callback) {
 
 module.exports = {
 	create_listing,
-	delete_listing,
+    delete_listing,
+    get_listing,
 	set_type,
     set_price,
     set_address,
