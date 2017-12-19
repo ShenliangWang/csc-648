@@ -16,7 +16,6 @@ function create_agent(fname, lname, phone, email, pwd, callback) {
     db.query("INSERT INTO Agents(firstname, lastname, phonenumber, email, created_at) VALUES (?, ?, ?, ?, ?)", [fname, lname, phone, email, mysqlTimestamp], 
         function(err,rows,fields) {
             if(err) {
-                res.status(500).json({"status_code": 500,"status_message": "internal server error"});
                 return callback(err);
             }
         }
@@ -25,7 +24,6 @@ function create_agent(fname, lname, phone, email, pwd, callback) {
 	db.query("INSERT INTO password(email, password) VALUES (?, ?)", [email, pwd], 
         function(err,rows,fields) {
             if(err) {
-                res.status(500).json({"status_code": 500,"status_message": "internal server error"});
                 return callback(err);
             }
         }
@@ -42,7 +40,6 @@ function get_agent(agent_id, callback) {
     db.query("SELECT * FROM Agents WHERE agent_id = ?", [agent_id], 
         function(err,rows,fields) {
             if(err) {
-                res.status(500).json({"status_code": 500,"status_message": "internal server error"});
                 return callback(err);
             }else {
                 var agents = [];
@@ -73,7 +70,6 @@ function set_phone(agent_id,phone,callback) {
 	db.query("UPDATE TABLE Agents SET phonenumber = ? WHERE agent_id = ?", [phone, agent_id], 
         function(err,rows,fields) {
             if(err) {
-                res.status(500).json({"status_code": 500,"status_message": "internal server error"});
                 return callback(err);
             }
         }
