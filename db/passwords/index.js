@@ -11,7 +11,7 @@ var del = "DELETE FROM " + table + " ";
    @author: Felix
 //upadated   */
 function get_password(email, callback) {
-	db.query(select password FROM password + 
+	db.query(select + 
 		"WHERE email= ?",[email], 
 	       function(err, result) {
 		       if(err) {
@@ -19,7 +19,7 @@ function get_password(email, callback) {
 			       return callback(err);
 		       } else {
 			       return callback(result);
-		       }})}
+		       }})};
 
 /* Sets password in table passwords associated with a particular email in db
    Note: Testing req'd
