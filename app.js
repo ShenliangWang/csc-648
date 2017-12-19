@@ -10,6 +10,44 @@ var bodyParser = require('body-parser');
 var expressValidator = require('express-validator');
 var db = require('./db');
 
+// File Uploads
+var multer = require('multer');
+var storage = multer.diskStorage({
+  destination: './public/images/',
+  filename: function(req, file, cb) {
+    cb(null,file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+  }
+});
+var upload = multer({
+  storage: storage,
+  limits: {fileSize: 1000000},
+  fileFilter: function(req, file, cb) {
+    checkFileType(file, cb);
+  }
+}).single('enter field name here'); //TODO
+
+app.post('/upload', (req, res) => {
+  upload(req, res, (err) => {
+    if(err) {
+      //res.render...
+    }
+    else {
+      console.log(req.file);
+    }
+  });
+});
+
+function checkFileType(file, cb) {
+  var filetypes = /jpeg|jgp|png|gif/;
+  var extname = filetypes.test(path.extname(file.originalname).toLowerCase());
+  var mimetype = filetypes.test(file.mimetype);
+  if(mimetype && extname) {
+    return cb(null,true);
+  } else {
+    cb('Error: Images only!');
+  }
+}
+
 // Authentication Packages
 var session = require('express-session');
 var passport = require('passport');
