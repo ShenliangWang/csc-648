@@ -26,20 +26,6 @@ var upload = multer({
   }
 }).single('enter field name here'); //TODO
 
-app.post('/upload', (req, res) => {
-  upload(req, res, (err) => {
-    if(err) {
-      //res.render...
-    }
-    else {
-      if(req.file == undefined) {
-        //... no file selected
-      }
-      console.log(req.file);
-    }
-  });
-});
-
 function checkFileType(file, cb) {
   var filetypes = /jpeg|jgp|png|gif/;
   var extname = filetypes.test(path.extname(file.originalname).toLowerCase());
@@ -76,6 +62,7 @@ app.use(expressValidator());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Passport - Sessions
 var options = {
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
@@ -128,5 +115,19 @@ app.use(function(err, req, res, next) {
 app.get('/test', expressValidator(test), function(req, res){//NEW  
     res.json(200);
 });*/
+
+app.post('/upload', (req, res) => {
+  upload(req, res, (err) => {
+    if(err) {
+      //res.render...
+    }
+    else {
+      if(req.file == undefined) {
+        //... no file selected
+      }
+      console.log(req.file);
+    }
+  });
+});
 
 module.exports = app;
