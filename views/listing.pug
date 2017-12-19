@@ -1,0 +1,128 @@
+extends layout
+
+block content
+  // Page Content
+  .container
+    br
+    br
+    br
+    // Portfolio Item Heading
+    h5
+      a.nav-link(href='result')  back to search
+    h1.my-4
+      | Property Title
+      small (Location)
+    // Portfolio Item Row
+    .row
+      .w3-content.w3-display-container
+        // link image to database
+        img.mySlides(src='http://placehold.it/750x500', style='width:100%')
+        img.mySlides(src='http://placehold.it/750x450', style='width:100%')
+        img.mySlides(src='http://placehold.it/750x400', style='width:100%')
+        img.mySlides(src='http://placehold.it/750x350', style='width:100%')
+        img.mySlides(src='http://placehold.it/750x300', style='width:100%')
+        button.w3-button.w3-black.w3-display-left(onclick='plusDivs(-1)') &#x276E;
+        button.w3-button.w3-black.w3-display-right(onclick='plusDivs(1)') &#x276F;
+      script.
+        var slideIndex = 1;
+        showDivs(slideIndex);
+        function plusDivs(n) {
+        showDivs(slideIndex += n);
+        }
+        function showDivs(n) {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        if (n > x.length) {
+        slideIndex = 1
+        }
+        if (n < 1) {
+        slideIndex = x.length
+        }
+        for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+        }
+        x[slideIndex - 1].style.display = "block";
+        }
+      .col-md-4
+        // map
+        #map
+        script.
+          function initMap() {
+          var uluru = {
+          lat: -25.363,
+          lng: 131.044
+          };
+          var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: uluru
+          });
+          var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+          });
+          }
+        script(async='', defer='', src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDGf7v2z21y1mcjDcD4ARc7M6jmKdDYdj4&callback=initMap')
+        // end map api
+        h3.my-3 Property Details
+        ul
+          li Lorem Ipsum
+          li Dolor Sit Amet
+          li Consectetur
+          li Adipiscing Elit
+        button.btn.btn-warning(type='button', data-toggle='modal', data-target='#ContactAgentModal') Contact Agent
+      .col-md-10
+        h3.my-3 Property Description
+        p
+          | description here. description here. description here. description here. description here. description here. description here. description here. description here. description here. description here. description here. description here. description
+          | here. description here. description here. description here. description here. description here. description here. description here. description here. description here. description here. description here. description here.
+    // /.row
+    // Related Projects Row
+    h3.my-4 Related Properties
+    .row
+      .col-md-3.col-sm-6.mb-4
+        a(href='#')
+          img.img-fluid(src='http://placehold.it/500x300', alt='')
+      .col-md-3.col-sm-6.mb-4
+        a(href='#')
+          img.img-fluid(src='http://placehold.it/500x300', alt='')
+      .col-md-3.col-sm-6.mb-4
+        a(href='#')
+          img.img-fluid(src='http://placehold.it/500x300', alt='')
+      .col-md-3.col-sm-6.mb-4
+        a(href='#')
+          img.img-fluid(src='http://placehold.it/500x300', alt='')
+    // /.row
+  // /.container
+  // Contact agent modal
+  #ContactAgentModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='contactAgentModalLabel', aria-hidden='true')
+    .modal-dialog(role='document')
+      .modal-content
+        .modal-header
+          h5#contactAgentModalLabel.modal-title Input Messages:
+          button.close(type='button', data-dismiss='modal', aria-label='Close')
+            span(aria-hidden='true') &times;
+        .modal-body
+          .col.form-group
+            .modal-body
+            input.form-control(type='text', placeholder='Enter your full name')
+            br
+            input.form-control(type='text', placeholder='Enter your email or phone number')
+            br
+            .form-group
+              textarea#exampleFormControlTextarea1.form-control(placeholder='Type your message here...', rows='5')
+        .modal-footer
+          button.btn.btn-secondary(type='button', data-dismiss='modal') Cancel
+          // link to agent's message box
+          button.btn.btn-primary(data-toggle='modal', data-target='#MessageSentModal', type='button', data-dismiss='modal') Send
+  // Message Sent Modal
+  #MessageSentModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='MessageSentModalLabel', aria-hidden='true')
+    .modal-dialog(role='document')
+      .modal-content
+        .modal-header
+          h5#exampleModalLabel.modal-title Message Sent!
+          button.close(type='button', data-dismiss='modal', aria-label='Close')
+            span(aria-hidden='true') &times;
+        .modal-body
+          | Congratulations! Your message has been sent to the agent of this property. Expect a reply within next 4-5 business days.
+        .modal-footer
+          button.btn.btn-primary(type='button', data-dismiss='modal') Done

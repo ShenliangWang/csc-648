@@ -47,6 +47,7 @@ var users = require('./routes/users');
 var dbTest = require('./routes/dbTest');
 var register = require('./routes/register');
 var login = require('./routes/login');
+var listing = require('./routes/listing');
 var app = express();
 
 // view engine setup
@@ -88,6 +89,7 @@ app.use('/users', users);
 app.use('/dbTest', dbTest);
 app.use('/register', register);
 app.use('/login', login);
+app.use('/listing', listing); //testing
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
