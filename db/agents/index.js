@@ -11,22 +11,23 @@ var del = "DELETE FROM " + table + " ";
    @author: Felix + Julian. 			*/
 function create_agent(fname, lname, phone, email, pwd, callback) {
 
-var mysqlTimestamp = moment(Date.now()).format('YYYY-MM-DD HH:mm:ss');
- db.query("INSERT INTO Agents(firstname, lastname, phonenumber, email, created_at) VALUES ("+mysql.escape(fname)+","+mysql.escape(lname)+", "+mysql.escape(phone)+", "+mysql.escape(email)+","+mysqlTimestamp+")", 
-    function(err,rows,fields) {
-        if(err) {
-            res.status(500).json({"status_code": 500,"status_message": "internal server error"});
-            return callback(err);
+    var mysqlTimestamp = moment(Date.now()).format('YYYY-MM-DD HH:mm:ss');
+
+    db.query("INSERT INTO Agents(firstname, lastname, phonenumber, email, created_at) VALUES (?, ?, ?, ?, ?)", [fname, lname, phone, email, mysqlTimestamp], 
+        function(err,rows,fields) {
+            if(err) {
+                return callback(err);
+            }
         }
-    })
+    )
 	
-	 db.query("INSERT INTO password(email, password) VALUES ("+mysql.escape(email)+", "+mysql.escape(password)+")", 
-    function(err,rows,fields) {
-        if(err) {
-            res.status(500).json({"status_code": 500,"status_message": "internal server error"});
-            return callback(err);
+	db.query("INSERT INTO password(email, password) VALUES (?, ?)", [email, pwd], 
+        function(err,rows,fields) {
+            if(err) {
+                return callback(err);
+            }
         }
-    })
+    )
 }
 
 
@@ -35,26 +36,30 @@ var mysqlTimestamp = moment(Date.now()).format('YYYY-MM-DD HH:mm:ss');
    @author: Felix + Julian		*/
 
 function get_agent(agent_id, callback) {
-    db.query("SELECT * FROM Agents WHERE agent_id = " + mysql.escape(agent_id) +"", 
-    function(err,rows,fields) {
-        if(err) {
-            res.status(500).json({"status_code": 500,"status_message": "internal server error"});
-            return callback(err);
-        } else {
-            var agents = [];
-            for(var i = 0; i < rows.length; i++) {
 
-                var agent = {
-		    'agent_id' : rows[i].agent_id,
-                    'firstname' : rows[i].firstname,
-                    'lastname' : rows[i].lastname,
-                    'phonenumber' : rows[i].zipcode,
-                    'email' : rows[i].email
+    db.query("SELECT * FROM Agents WHERE agent_id = ?", [agent_id], 
+        function(err,rows,fields) {
+            if(err) {
+                return callback(err);
+            }else {
+                var agents = [];
+                
+                for(var i = 0; i < rows.length; i++) {
+                    var agent = {
+		                'agent_id' : rows[i].agent_id,
+                        'firstname' : rows[i].firstname,
+                        'lastname' : rows[i].lastname,
+                        'phonenumber' : rows[i].zipcode,
+                        'email' : rows[i].email
+                    }
+
+                    agents.push(agent);
                 }
-                agents.push(agent);
+                return callback(agents);
             }
-            return callback(agents);
-        }})}
+        }
+    )
+}
 
 
 /* Update selected agent's phone from db table agents. 
@@ -62,52 +67,55 @@ function get_agent(agent_id, callback) {
    @author: Felix + Julian   */
 //This function updates the Agent's phone number using their ID
 function set_phone(agent_id,phone,callback) {
-	db.query("UPDATE TABLE Agents SET phonenumber = "+mysql.escape(phone)+" WHERE agent_id = "+mysql.escape(agent_id)+")", 
-    function(err,rows,fields) {
-        if(err) {
-            res.status(500).json({"status_code": 500,"status_message": "internal server error"});
-            return callback(err);
-        }})}
+	db.query("UPDATE TABLE Agents SET phonenumber = ? WHERE agent_id = ?", [phone, agent_id], 
+        function(err,rows,fields) {
+            if(err) {
+                return callback(err);
+            }
+        }
+    )
+}
+/*
+  This overloaded function is not needed. The above suffices.
 //This function updates the Agent's phone number using their email
 function set_phone(agent_email,phone,callback) {
-	db.query("UPDATE TABLE Agents SET phonenumber = "+mysql.escape(phone)+" WHERE email = "+mysql.escape(agent_email)+")", 
+	db.query("UPDATE TABLE Agents SET phonenumber = ? WHERE email = ?", [phone, agent_email], 
     function(err,rows,fields) {
         if(err) {
             res.status(500).json({"status_code": 500,"status_message": "internal server error"});
             return callback(err);
         }})}
 
-
+*/
 
 /* Update selected agent's email from db table agents. 
    Note: Testing req'd
    @author: Felix + Julian  */
 
-
+/*Priority 2
 function set_email(agent_id,email,callback) {
-	db.query("UPDATE TABLE Agents SET email = "+mysql.escape(email)+" WHERE agent_id = "+mysql.escape(agent_id)+")", 
+	db.query("UPDATE TABLE Agents SET email = ? WHERE agent_id = ?", [email, agent_id], 
     function(err,rows,fields) {
         if(err) {
             res.status(500).json({"status_code": 500,"status_message": "internal server error"});
             return callback(err);
         }})}
-
+*/
 /* Update selected agent's password from db table agents. */
+/*Priority 2
 function set_password(agent_email,pword,callback) {
-	db.query("UPDATE TABLE password SET password = "+mysql.escape(pword)+" WHERE email = "+mysql.escape(agent_email)+")", 
+	db.query("UPDATE TABLE password SET password = ? WHERE email = ?" [pword, agent_email], 
     function(err,rows,fields) {
         if(err) {
             res.status(500).json({"status_code": 500,"status_message": "internal server error"});
             return callback(err);
         }})}
 
-
+*/
 
 
 module.exports = {
 	create_agent,
-	get_agent,
-	set_phone,
-	set_email,
-	set_password
+    get_agent,
+    set_phone
 };

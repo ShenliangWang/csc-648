@@ -1,6 +1,15 @@
 doctype html
 html
   head
+    //Global site tag (gtag.js) - Google Analytics
+    script(async src="https://www.googletagmanager.com/gtag/js?id=UA-111392469-1")
+    script.
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-111392469-1');
+      
     title= title
     meta(charset='utf-8')
     meta(
@@ -20,37 +29,79 @@ html
     // Navigation
     nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.sticky-top
       .container
-        a.navbar-brand(href='./') Essos
-        button.navbar-toggler(
-          type='button', 
-          data-toggle='collapse', 
-          data-target='#navbarResponsive', 
-          aria-controls='navbarResponsive', 
-          aria-expanded='false', 
-          aria-label='Toggle navigation'
-        )
+        a.navbar-brand(href='./') 
+          h1 Essos
+        button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
           span.navbar-toggler-icon
-
-        form.navbar-form.navbar-search(method='get', action='test')
+        form.navbar-form.navbar-search(method='get', action='results')
           .input-group
-            input.form-control(
-              type='search',
-              placeholder='Search by city or zipcode',
-              name='search',
-              value= search_val)             
+            input.form-control(type='text', style='width: 500px;', name='search',placeholder='Enter zip or city', value=search_val)
             .input-group-btn
-              button.btn.btn-search.btn-danger(type='submit')
-                span.glyphicon.glyphicon-search                          
+              button.btn.btn-search.btn-primary(type='submit')
+                span.glyphicon.glyphicon-search
                 span.label-icon Search
 
         #navbarResponsive.collapse.navbar-collapse
           ul.navbar-nav.ml-auto
             li.nav-item
-              a.nav-link(href='about') About us             
+              a.nav-link(href='about') About us
             li.nav-item
-              a.nav-link(href='#') Agent          
+              a.nav-link(href='', data-toggle='modal', data-target='#AgentLoginModal')  Agent
             li.nav-item
-            a.nav-link(href='register') Sign In/Sign Up
+              a.nav-link(href='', data-toggle='modal', data-target='#loginModal') Sign In
+            li.nav-item
+              a.nav-link(href='', data-toggle='modal', data-target='#exampleModal') Sign Out
+
+  // Logout Modal
+  #exampleModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
+    .modal-dialog(role='document')
+      .modal-content
+        .modal-header
+          h5#exampleModalLabel.modal-title Ready to Leave?
+          button.close(type='button', data-dismiss='modal', aria-label='Close')
+            span(aria-hidden='true') &times;
+        .modal-body Are you sure you want to log out? Click &quot;Logout&quot; below to end your session.
+        .modal-footer
+          button.btn.btn-secondary(type='button', data-dismiss='modal') Cancel
+          a.btn.btn-primary(href='index.html') Logout
+
+  // LogIn Modal
+  #loginModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='loginModalLabel', aria-hidden='true')
+    .modal-dialog(role='document')
+      .modal-content
+        .modal-header
+          h5#loginModalLabel.modal-title User Sign In
+          button.close(type='button', data-dismiss='modal', aria-label='Close')
+            span(aria-hidden='true') &times;
+        .col-sm-6.form-group
+          .modal-body
+          input.form-control(type='text', placeholder='User Email', style='width: 400px;')
+          br
+          input.form-control(type='text', placeholder='Password', style='width: 400px;')
+        .modal-footer
+          a.btn.btn-warning(href='register') Register
+          button.btn.btn-secondary(type='button', data-dismiss='modal') Cancel
+          // change to userHome
+          a.btn.btn-primary(href='UserHome.html') Log in
+
+  // Agent LogIn Modal
+  #AgentLoginModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='AgentLoginModalLabel', aria-hidden='true')
+    .modal-dialog(role='document')
+      .modal-content
+        .modal-header
+          h5#AgentLoginModalLabel.modal-title Agent Sign In
+          button.close(type='button', data-dismiss='modal', aria-label='Close')
+            span(aria-hidden='true') &times;
+        .col-sm-6.form-group
+          .modal-body
+          input.form-control(type='text', placeholder='Agent Email', style='width: 400px;')
+          br
+          input.form-control(type='text', placeholder='Password', style='width: 400px;')
+        .modal-footer
+          a.btn.btn-warning(href='AgentRegistration.html') Register
+          button.btn.btn-secondary(type='button', data-dismiss='modal') Cancel
+          // change to Agent Dashboard
+          a.btn.btn-primary(href='Agent/Agent.html') Log in
         
   body
     block content

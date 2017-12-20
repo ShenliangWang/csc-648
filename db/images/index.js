@@ -10,15 +10,17 @@ function get_listing_images(listing_id, callback) {
                         res.status(500).json({"status_code": 500,"status_message": "internal server error"});
                         return callback(err);
                 } else {
-                        var img_paths = [];
-                        for(var i = 0; i < rows.length; i++) {
-
-                                var path = {
-                                'img' : rows[i].image_path
-                                }
-                                img_paths.push(path);
-                        }
-                        return callback(img_paths);
+                        var images = [];
+			for(var i = 0; i < rows.length; i++) {
+                
+				var image = {
+					'image_pk' : rows[i].image_pk,
+					'listing_id' : rows[i].listing_id,
+					'image_path' : rows[i].image_path
+				}
+				images.push(image);           
+			}
+			return callback(image);
                 }
         })
         
@@ -31,32 +33,42 @@ function get_listing_images(listing_id, callback) {
    a new image in a new folder will be named 1.jpeg.
    May be redundant as listing's table will have similar function             */
 
-function set_image(listing_id, image, callback) {
-	db.query("UPDATE TABLE image SET image_path = "+mysql.escape(image)+" WHERE listing_id = "+mysql.escape(listing_id)+")", 
+   /* set image in json format from db table listing
+
+   @author: Shenliang */
+   function set_image(listing_id, image, callback) {
+    db.query("UPDATE TABLE Listing SET image_path="+mysql.escape(image)+"WHERE listing_id="+mysql.escape(listing_id)+")", 
     function(err,rows,fields) {
         if(err) {
             res.status(500).json({"status_code": 500,"status_message": "internal server error"});
             return callback(err);
-        }})}
+        }})
+}
 
-// Deletes a selected image from the table images in the db.
+/* Deletes a selected image from the table images in the db.
+@author: Shenliang */
+
 function delete_image(image_id, callback) {
-	db.query("DELETE * FROM image WHERE image_pk = "+mysql.escape(image_id)+")", 
+    db.query("DELETE *FROM image  WHERE image_pk = "+mysql.escape(image_id)+")", 
     function(err,rows,fields) {
         if(err) {
             res.status(500).json({"status_code": 500,"status_message": "internal server error"});
             return callback(err);
-        }})}
+        }})
 
-// Deletes all images associated with a listing from the images table.
+}
+
+/* Deletes all images associated with a listing from the images table.
+@author: Shenliang */
 function delete_img_by_listing(listing_id, callback) {
-	db.query("DELETE * FROM image WHERE listing_id = "+mysql.escape(listing_id)")", 
+    db.query("DELETE * FROM image WHERE listing_id = "+mysql.escape(listing_id)+")", 
     function(err,rows,fields) {
         if(err) {
             res.status(500).json({"status_code": 500,"status_message": "internal server error"});
             return callback(err);
-        }})}
+        }})
 
+}
 
 
 module.exports = {
