@@ -7,20 +7,20 @@ block content
     br
     br
     // Portfolio Item Heading
-    h5
-      a.nav-link(href='result')  back to search
+    h5 
+      a.nav-link(href='/')  back to search
     h1.my-4
-      | Property Title
+      | Phelan Ave, San Francisco, Ca. 94112
       small (Location)
     // Portfolio Item Row
     .row
       .w3-content.w3-display-container
         // link image to database
-        img.mySlides(src='http://placehold.it/750x500', style='width:100%')
-        img.mySlides(src='http://placehold.it/750x450', style='width:100%')
-        img.mySlides(src='http://placehold.it/750x400', style='width:100%')
-        img.mySlides(src='http://placehold.it/750x350', style='width:100%')
-        img.mySlides(src='http://placehold.it/750x300', style='width:100%')
+        img.mySlides(src='images/listing_id_1/1.jpg', style='width:50%')
+        img.mySlides(src='https://static.pexels.com/photos/276724/pexels-photo-276724.jpeg', style='width:40%')
+        img.mySlides(src='https://static.pexels.com/photos/189333/pexels-photo-189333.jpeg', style='width:40%')
+        img.mySlides(src='https://static.pexels.com/photos/271634/pexels-photo-271634.jpeg', style='width:40%')
+        img.mySlides(src='https://static.pexels.com/photos/271643/pexels-photo-271643.jpeg', style='width:40%')
         button.w3-button.w3-black.w3-display-left(onclick='plusDivs(-1)') &#x276E;
         button.w3-button.w3-black.w3-display-right(onclick='plusDivs(1)') &#x276F;
       script.
@@ -65,32 +65,32 @@ block content
         // end map api
         h3.my-3 Property Details
         ul
-          li Lorem Ipsum
-          li Dolor Sit Amet
-          li Consectetur
-          li Adipiscing Elit
+          li 3 Bedrooms
+          li 2 Bathrooms
+          li 1500 Sq Ft.
+          li $1,000,000.00
         button.btn.btn-warning(type='button', data-toggle='modal', data-target='#ContactAgentModal') Contact Agent
       .col-md-10
         h3.my-3 Property Description
         p
-          | description here. description here. description here. description here. description here. description here. description here. description here. description here. description here. description here. description here. description here. description
-          | here. description here. description here. description here. description here. description here. description here. description here. description here. description here. description here. description here. description here.
+          | A cozy home nestled in the rolling fog of the city by the bay. 
+          | A romantic home ideal for couples in love...
     // /.row
     // Related Projects Row
     h3.my-4 Related Properties
     .row
       .col-md-3.col-sm-6.mb-4
         a(href='#')
-          img.img-fluid(src='http://placehold.it/500x300', alt='')
+          img.img-fluid(src='images/listing_id_2/1.jpg', alt='')
       .col-md-3.col-sm-6.mb-4
         a(href='#')
-          img.img-fluid(src='http://placehold.it/500x300', alt='')
+          img.img-fluid(src='images/listing_id_3/1.jpg', alt='')
       .col-md-3.col-sm-6.mb-4
         a(href='#')
-          img.img-fluid(src='http://placehold.it/500x300', alt='')
+          img.img-fluid(src='images/listing_id_4/1.jpg', alt='')
       .col-md-3.col-sm-6.mb-4
         a(href='#')
-          img.img-fluid(src='http://placehold.it/500x300', alt='')
+          img.img-fluid(src='images/listing_id_5/1.jpg', alt='')
     // /.row
   // /.container
   // Contact agent modal
