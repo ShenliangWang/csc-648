@@ -42,31 +42,31 @@ function delete_listing(listing_id, callback) {
    @author: Felix   + Julian*/
    
 function get_listing(listing_id, callback) {
-    db.query("SELECT * FROM listings WHERE listing_id = ?",[listing_id], 
+    db.query("SELECT * FROM listings WHERE listing_id = ? LIMIT 1",[listing_id], 
     function(err,rows,fields) {
         if(err) {
            // res.status(500).json({"status_code": 500,"status_message": "internal server error"});
             return callback(err);
         } else {
-            var listings = [];
-            for(var i = 0; i < rows.length; i++) {
+            
+            
 
                 var listing = {
-		    'listing_id' : rows[i].listing_id,
-                    'type' : rows[i].type,
-                    'sqrft' : rows[i].sqrft,
-                    'price' : rows[i].price,
-		    'city' : rows[i].city,
-                    'state' : rows[i].state,
-                    'zipcode' : rows[i].zipcode,
-                    'address' : rows[i].address,
-		    'bedrooms' : rows[i].bedrooms,
-                    'description' : rows[i].description,
-                    'agent_id' : rows[i].agent_id
-                }
-                listings.push(listing);
+		    'listing_id' : rows[0].listing_id,
+                    'type' : rows[0].type,
+                    'sqrft' : rows[0].sqrft,
+                    'price' : rows[0].price,
+		    'city' : rows[0].city,
+                    'state' : rows[0].state,
+                    'zipcode' : rows[0].zipcode,
+                    'address' : rows[0].address,
+		    'bedrooms' : rows[0].bedrooms,
+		    'bathrooms' : rows[0].bathrooms,
+                    'description' : rows[0].description,
+                    'agent_id' : rows[0].agent_id
+                
             }
-            return callback(listings);
+            return callback(listing);
         }})}
 
 

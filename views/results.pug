@@ -19,7 +19,7 @@ block content
                 img.card-img-top(src="images/listing_id_" + listing.id + "/1.jpg", alt='')                    
               .card-body
                 h4.card-title
-                  a(href='listing')= listing.address                       
+                  a(href='listing/'+listing.id)= listing.address                       
                 p.card-text= listing.city
               .card-footer
     else
